@@ -1,0 +1,7 @@
+package day0118;
+
+public class EscapeSequence_03 {
+  public static void main(String[] args) {
+    System.out.println("Apple\tOrange");
+  }
+}
