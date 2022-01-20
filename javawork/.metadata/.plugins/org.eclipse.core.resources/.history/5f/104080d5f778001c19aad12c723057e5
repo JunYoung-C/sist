@@ -1,0 +1,24 @@
+package day0119;
+
+import java.util.Scanner;
+
+public class Ex10_QuizKeyBoardInInfo {
+  public static void main(String[] args) {
+    Scanner stdIn = new Scanner(System.in);
+    
+    System.out.print("응시자 이름: ");
+    String name = stdIn.nextLine();
+    System.out.print("출생년도: ");
+    int year = Integer.parseInt(stdIn.nextLine());
+    System.out.print("나이: ");
+    int age = Integer.parseInt(stdIn.nextLine());
+    System.out.print("학과: ");
+    String cl = stdIn.nextLine();
+    System.out.print("소프트웨어 사전시험결과: ");
+    int sw = Integer.parseInt(stdIn.nextLine());
+    System.out.print("실전 응용테스트: ");
+    int app = Integer.parseInt(stdIn.nextLine());
+    
+    
+  }
+}
