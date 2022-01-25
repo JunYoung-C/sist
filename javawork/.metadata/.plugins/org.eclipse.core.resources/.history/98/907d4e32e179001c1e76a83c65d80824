@@ -1,0 +1,29 @@
+package day0120;
+
+public class Test {
+  public static void main(String[] args) {
+    A a = new A();
+    B b = new B();
+    A a2 = (A) b;
+    System.out.println(a instanceof B);
+    System.out.println(b instanceof A);
+    System.out.println(a instanceof A);
+    System.out.println(a2 instanceof A);
+    System.out.println(a2 instanceof B);
+
+    System.out.println(A.class.isAssignableFrom(b.getClass()));
+    System.out.println(B.class.isAssignableFrom(a.getClass()));
+    System.out.println(A.class.isAssignableFrom(a.getClass()));
+    System.out.println(A.class.isAssignableFrom(a2.getClass()));
+    System.out.println(B.class.isAssignableFrom(a2.getClass()));
+
+  }
+}
+
+class A {
+  
+}
+
+class B extends A {
+  
+}

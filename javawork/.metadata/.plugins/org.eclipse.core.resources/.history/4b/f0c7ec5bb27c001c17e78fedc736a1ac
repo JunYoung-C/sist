@@ -1,0 +1,12 @@
+package day0124;
+
+public class Ex01_ForTotalReview {
+  public static void main(String[] args) {
+    // 1부터 100까지 합계 구하기
+    int total = 0;
+    for (int n = 1; n <= 100; n++) {
+      total += n;
+    }
+    System.out.println(total);
+  }
+}

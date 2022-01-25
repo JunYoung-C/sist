@@ -1,0 +1,25 @@
+package day0124;
+
+import java.util.Scanner;
+
+public class Ex16_QuizWhileTrueGugu {
+  public static void main(String[] args) {
+    Scanner stdIn = new Scanner(System.in);
+    int n = 0;
+    
+    while (true) {
+      System.out.print("단을 입력하시오(종료: 0): ");
+      n = stdIn.nextInt();
+      if (n == 0) {
+        break;
+      }
+      if (n > 10 || n < 2) {
+        continue;
+      }
+      
+      for (int i = 1; i <= 9; i++) {
+        System.out.println(i + "X" + j + "=" + i * j);
+      }
+    }
+  }
+}

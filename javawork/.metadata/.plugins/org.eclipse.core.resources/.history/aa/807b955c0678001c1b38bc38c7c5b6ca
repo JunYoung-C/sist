@@ -1,9 +1,0 @@
-package day0118;
-
-public class WrapperTest_05 {
-  public static void main(String[] args) {
-    String su1 = "5";
-    String su2 = "3";
-    System.out.println("두수 더하기: " + (su1 + su2));
-  }
-}

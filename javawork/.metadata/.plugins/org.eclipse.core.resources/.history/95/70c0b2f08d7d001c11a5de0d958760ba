@@ -1,0 +1,11 @@
+package day0125;
+
+public class Ex03_MathRandom {
+  public static void main(String[] args) {
+    for (int i = 1; i <= 10; i++) {
+      Double n = Math.random();
+    }
+    
+    System.out.println(n);
+  }
+}

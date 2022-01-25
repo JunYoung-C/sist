@@ -1,0 +1,15 @@
+package day0121;
+
+import java.util.Scanner;
+
+public class Ex07_CharAt {
+  public static void main(String[] args) {
+    Scanner stdIn = new Scanner(System.in);
+    
+    char ch;
+    System.out.println("알파뱃 1글자 입력");
+    
+    ch = stdIn.nextLine().charAt(0);
+    System.out.println("ch = " + ch);
+  }
+}
