@@ -1,0 +1,19 @@
+package day0126;
+
+public class Ex01_String {
+  public static void main(String[] args) {
+    System.out.println("String 객체에 대한 멤버 메서드를 공부합니다.");
+    String str1 = "apple";
+    String str2 = "Apple";
+    String str3 = "Have a Nice Day";
+    String str4 = "   Happy Day   ";
+    System.out.println("str3의 길이 : " + str3.length());
+    System.out.println("str4의 길이 : " + str4.length());
+    System.out.println("앞뒤 공백 제거 str4의 길이 : " + str4.trim().length());
+    System.out.println("*" + str4 + "*");
+    System.out.println("*" + str4.trim() + "*");
+    System.out.println("str3에서 0번 문자: " + str3.charAt(0));
+    System.out.println("str3에서 H의 인덱스: " + str3.indexOf('H'));
+    System.out.println("str3에서 Have출력" + str3.substring(str3.indexOf('H'), str3.indexOf('H' + 4)));
+  }
+}

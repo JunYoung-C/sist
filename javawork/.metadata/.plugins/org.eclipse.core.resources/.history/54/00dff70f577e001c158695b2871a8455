@@ -1,0 +1,23 @@
+package day0126;
+
+import java.util.Scanner;
+
+public class Ex07_ArraysScanChange {
+  public static void main(String[] args) {
+    Scanner stdIn = new Scanner(System.in);
+
+    int n = stdIn.nextInt();
+    String[] names = new String[n];
+    int[] scores = new int[n];
+    for (int i = 0; i < n; i++) {
+      names[i] = stdIn.next();
+      scores[i] = stdIn.nextInt();
+    }
+
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+      sum += scores[i];
+    }
+    double avg = (double) sum / n;
+  }
+}
