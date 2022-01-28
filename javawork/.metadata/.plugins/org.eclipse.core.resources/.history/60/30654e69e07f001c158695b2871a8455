@@ -1,0 +1,19 @@
+package day0128;
+
+public class Ex03_CardTest {
+  public static void main(String[] args) {
+    //static 접근 테스트
+    Card.width = 10;
+    Card.height = 20;
+    
+    System.out.println(Card.width);
+    System.out.println(Card.height);
+    
+    Card c1 = new Card();
+    System.out.println(c1.kind);
+    System.out.println(c1.num);
+    
+    c1.kind = "Heard";
+    c1.num = 7;
+  }
+}

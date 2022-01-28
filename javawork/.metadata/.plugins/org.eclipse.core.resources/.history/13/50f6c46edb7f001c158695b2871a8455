@@ -1,0 +1,14 @@
+package day0128;
+
+public class Ex02_Object {
+
+  // 인스턴스 변수
+  String name;
+
+  // 여러 객체가 같은 값을 가져야 할 경우 static 주로 선언
+  static String MESSAGE = "HappyDay";
+
+  public static void main(String[] args) {
+
+  }
+}

@@ -1,0 +1,26 @@
+package day0128;
+
+
+class ObTestA {
+  private int x;
+  private static int y;
+  
+  // 메서드로 접근 가능(캡슐화). 인스턴스 변수가 private이면 생성을 해도 참조 변수로 변수에 접근 못함.
+  
+  // 멤버 수정 메서드
+  public void setX(int xx) {
+    this.x = xx;
+  }
+  
+  // 멤버 출력 메서드
+  public void getX() {
+    System.out.println("x=" + this.x);
+  }
+}
+public class Ex08_Object {
+  public static void main(String[] args) {
+    ObTestA obA = new ObTestA();
+    
+
+  }
+}
