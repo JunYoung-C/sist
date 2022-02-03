@@ -1,7 +1,0 @@
-package day0124;
-
-public class Ex10_QuizForBreakContinue {
-  public static void main(String[] args) {
-    
-  }
-}

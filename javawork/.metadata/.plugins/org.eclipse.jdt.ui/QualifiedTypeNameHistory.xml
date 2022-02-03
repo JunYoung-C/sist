@@ -4,4 +4,16 @@
     <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="day0128.Ex02_Object"/>
+    <fullyQualifiedTypeName name="day0128.Card"/>
+    <fullyQualifiedTypeName name="day0128.StudentInfo"/>
+    <fullyQualifiedTypeName name="day0128.InstCnt"/>
+    <fullyQualifiedTypeName name="day0128.NumbConst"/>
+    <fullyQualifiedTypeName name="day0128.ObTestA"/>
+    <fullyQualifiedTypeName name="day0203.Ex01_ObTestReview"/>
+    <fullyQualifiedTypeName name="day0203.TestA"/>
+    <fullyQualifiedTypeName name="day0203.Orange"/>
+    <fullyQualifiedTypeName name="day0203_1.TestP"/>
+    <fullyQualifiedTypeName name="day0203.StudentInfo"/>
 </qualifiedTypeNameHistroy>

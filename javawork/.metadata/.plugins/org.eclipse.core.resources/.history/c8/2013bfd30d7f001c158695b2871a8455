@@ -1,9 +1,0 @@
-package day0127;
-
-public class Ex02_ArraysTemp {
-  public static void main(String[] args) {
-    int a = 10, b = 20;
-    
-    System.out.println("a=" + a + ", b=" + b);
-  }
-}

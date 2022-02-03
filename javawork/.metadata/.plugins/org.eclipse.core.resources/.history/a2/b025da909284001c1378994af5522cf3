@@ -1,0 +1,9 @@
+package day0203;
+
+class Person {
+  String name;
+  int age;
+}
+public class Ex04_const {
+
+}

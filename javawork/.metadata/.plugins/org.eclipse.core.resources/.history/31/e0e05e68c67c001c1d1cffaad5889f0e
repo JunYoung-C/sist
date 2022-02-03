@@ -1,7 +1,0 @@
-package day0124;
-
-public class Ex10_Quiz {
-  public static void main(String[] args) {
-    
-  }
-}
