@@ -1,0 +1,62 @@
+package day0204;
+
+import java.util.Scanner;
+
+class Student {
+  private String name;
+  private int java;
+  private int oracle;
+  private static String schoolName;
+
+  public Student(String name, int java, int oracle) {
+    super();
+    this.name = name;
+    this.java = java;
+    this.oracle = oracle;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public int getJava() {
+    return java;
+  }
+
+  public void setJava(int java) {
+    this.java = java;
+  }
+
+  public int getOracle() {
+    return oracle;
+  }
+
+  public void setOracle(int oracle) {
+    this.oracle = oracle;
+  }
+
+  public static String getSchool() {
+    return schoolName;
+  }
+
+  public static void setSchool(String school) {
+    Student.schoolName = school;
+  }
+}
+
+public class QuizWeekStu {
+  public static void main(String[] args) {
+    Scanner stdIn = new Scanner(System.in);
+    System.out.print("학교명 : ");
+    Student.setSchool(stdIn.next());
+    System.out.print("학생 수 : ");
+    int n = stdIn.nextInt();
+    Student[] students = new Student[n];
+    
+    
+  }
+}
