@@ -6,7 +6,7 @@ class Student {
   private String name;
   private int java;
   private int oracle;
-  private static String schoolName = "쌍용고등학교";
+  private static String schoolName;
   private int cnt = 2; // 자바, 오라클
 
   public String getName() {
@@ -78,6 +78,8 @@ public class QuizWeekStu {
   public static void main(String[] args) {
     Scanner stdIn = new Scanner(System.in);
 
+    System.out.println("학교명");
+    Student.setSchoolName(stdIn.next());
     System.out.println("학생인원");
     int n = stdIn.nextInt();
     Student[] students = new Student[n];

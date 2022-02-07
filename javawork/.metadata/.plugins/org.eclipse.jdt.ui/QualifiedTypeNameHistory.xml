@@ -16,4 +16,15 @@
     <fullyQualifiedTypeName name="day0203.Orange"/>
     <fullyQualifiedTypeName name="day0203_1.TestP"/>
     <fullyQualifiedTypeName name="day0203.StudentInfo"/>
+    <fullyQualifiedTypeName name="day0204.Member"/>
+    <fullyQualifiedTypeName name="day0204.Student"/>
+    <fullyQualifiedTypeName name="day0207.Menu"/>
+    <fullyQualifiedTypeName name="day0207.Ex03_SuperObj"/>
+    <fullyQualifiedTypeName name="day0207.Ex04_Employee"/>
+    <fullyQualifiedTypeName name="day0207.Ex05_SuperPoint"/>
+    <fullyQualifiedTypeName name="day0207_1.Ex05_SubPoint"/>
+    <fullyQualifiedTypeName name="day0207.Ex06_Person"/>
+    <fullyQualifiedTypeName name="day0207.Student"/>
+    <fullyQualifiedTypeName name="day0207.Ex09_Fruit"/>
+    <fullyQualifiedTypeName name="day0207.Ex10_FoodShop"/>
 </qualifiedTypeNameHistroy>

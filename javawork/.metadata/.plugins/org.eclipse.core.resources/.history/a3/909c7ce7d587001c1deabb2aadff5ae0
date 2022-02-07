@@ -1,0 +1,15 @@
+package day0207;
+
+
+class Sawon extends Ex06_Person {
+  int age;
+  
+  public Sawon(String name, String buseo, int age) {
+    this.name = name;
+    this.buseo = buseo;
+    this.age = age;
+  }
+}
+public class Ex06_Inherit {
+  
+}
