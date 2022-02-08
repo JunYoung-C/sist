@@ -1,0 +1,66 @@
+package day0208;
+
+abstract class Game {
+  public abstract void play();
+
+  public abstract void stop();
+
+}
+
+
+class Ara extends Game {
+
+  @Override
+  public void play() {
+    // TODO Auto-generated method stub
+    System.out.println("종민이가 게임을 시작합니다.");
+  }
+
+  @Override
+  public void stop() {
+    // TODO Auto-generated method stub
+    System.out.println("종민이가 게임을 종료합니다.");
+  }
+
+}
+
+
+class Ara extends Game {
+
+  @Override
+  public void play() {
+    // TODO Auto-generated method stub
+    System.out.println("종민이가 게임을 시작합니다.");
+  }
+
+  @Override
+  public void stop() {
+    // TODO Auto-generated method stub
+    System.out.println("종민이가 게임을 종료합니다.");
+  }
+
+}
+
+
+class Ara extends Game {
+
+  @Override
+  public void play() {
+    // TODO Auto-generated method stub
+    System.out.println("종민이가 게임을 시작합니다.");
+  }
+
+  @Override
+  public void stop() {
+    // TODO Auto-generated method stub
+    System.out.println("종민이가 게임을 종료합니다.");
+  }
+
+}
+
+
+public class Ex08_ArrayOverride {
+  public static void main(String[] args) {
+
+  }
+}

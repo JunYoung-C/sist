@@ -1,0 +1,11 @@
+package day0208;
+
+abstract class AbstEx1 {
+  abstract public void dataAdd();
+  abstract public void dataList();
+//  abstract public void dataUpdate();
+//  abstract public void dataDelete();
+}
+public class Ex16_AbstAnony {
+
+}
