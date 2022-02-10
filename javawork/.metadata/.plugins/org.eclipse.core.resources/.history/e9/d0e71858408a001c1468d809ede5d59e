@@ -1,0 +1,7 @@
+package day0210;
+
+public class Ex11_FileBufferToken {
+  public static void main(String[] args) {
+    String fileName = "C:\\sist\\javawork\\SistJavaProject\\info1.txt";
+  }
+}

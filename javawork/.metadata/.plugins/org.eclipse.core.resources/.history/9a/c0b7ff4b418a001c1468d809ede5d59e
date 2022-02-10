@@ -1,0 +1,17 @@
+package day0210;
+
+
+import java.io.FileReader;
+
+public class Ex11_FileBufferToken {
+  
+  public static void fileRead() {
+    String fileName = "C:\\sist\\javawork\\SistJavaProject\\info1.txt";
+    FileReader = null;
+    BufferedReader = null;
+    
+  }
+  public static void main(String[] args) {
+    
+  }
+}

@@ -1,0 +1,30 @@
+package day0210;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Ex12_FileToken {
+  public void read() throws IOException {
+    String fileName = "C:\\sist\\javawork\\SistJavaProject\\info2.txt";
+    FileReader fr = null;
+    BufferedReader br = null;
+    
+    fr= new FileReader(fileName);
+    br = new BufferedReader(fr);
+    
+    while (true) {
+      String s = br.readLine();
+      
+      if (s == null) {
+        break;
+      }
+      
+      String[] products = s.split(",");
+      System.out.println(products[0] + "\t" +products[1] + "\t" +products[2]);
+    }
+  }
+  public static void main(String[] args) {
+    
+  }
+}

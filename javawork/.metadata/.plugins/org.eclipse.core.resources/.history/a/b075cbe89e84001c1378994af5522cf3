@@ -1,9 +1,0 @@
-package day0203;
-
-public class Member {
-  private String name;
-  static String CLASS = "JAVA반";
-  private String sung;
-  private String addr;
-  
-}

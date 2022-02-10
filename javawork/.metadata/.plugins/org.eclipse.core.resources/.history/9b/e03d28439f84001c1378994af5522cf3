@@ -1,8 +1,0 @@
-package day0203;
-
-public class Ex07_MemberTest {
-  public static void main(String[] args) {
-    Member member1 = new Member();
-    member1.setDate("이나영", "여자", "서울시 용산구");
-  }
-}
