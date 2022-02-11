@@ -1,0 +1,25 @@
+package day0211;
+
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Ex07_SwingLay extends JFrame {
+  Container cp;
+  JButton btn1;
+
+  public Ex07_SwingLay(String title) {
+    super(title);
+
+    cp = this.getContentPane();
+    this.setBounds(200, 100, 400, 500);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    cp.setBackground(new Color(255, 200, 155));
+    this.setVisible(true);
+  }
+
+  public static void main(String[] args) {
+    new Ex07_SwingLay("레이아웃 연습");
+  }
+}

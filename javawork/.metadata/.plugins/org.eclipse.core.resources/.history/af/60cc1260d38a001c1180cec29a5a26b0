@@ -1,0 +1,10 @@
+package day0211;
+
+import java.util.Date;
+
+public class Ex01_Format {
+  public static void main(String[] args) {
+    Date date = new Date();
+    System.out.println(date);
+  }
+}

@@ -1,0 +1,60 @@
+package day0211;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+class Member {
+  private String name;
+  private int pay;
+  private int familyCnt;
+  private int overTime;
+  public Member(String name, int pay, int familyCnt, int overTime) {
+    super();
+    this.name = name;
+    this.pay = pay;
+    this.familyCnt = familyCnt;
+    this.overTime = overTime;
+  }
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+  public int getPay() {
+    return pay;
+  }
+  public void setPay(int pay) {
+    this.pay = pay;
+  }
+  public int getFamilyCnt() {
+    return familyCnt;
+  }
+  public void setFamilyCnt(int familyCnt) {
+    this.familyCnt = familyCnt;
+  }
+  public int getOverTime() {
+    return overTime;
+  }
+  public void setOverTime(int overTime) {
+    this.overTime = overTime;
+  }
+  
+  public int getFamilyPay() {
+    return familyCnt * 30000;
+  }
+  
+  public int TimePay() {
+    return overTime * 20000;
+  }
+}
+public class Ex02_FileRead {
+  static void read() throws IOException {
+    String fileName = "C:\\\\sist\\\\javawork\\\\SistJavaProject\\\\info3.txt";
+    FileReader fr = new FileReader(fileName);
+    BufferedReader br = new BufferedReader(fr);
+    
+  }
+}

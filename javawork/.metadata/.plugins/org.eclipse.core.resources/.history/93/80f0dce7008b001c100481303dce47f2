@@ -1,0 +1,13 @@
+package day0211;
+
+import javax.swing.JFrame;
+
+public class Ex06_SwingGibon extends JFrame {
+  public Ex06_SwingGibon(String title) {
+    super(title);
+  }
+
+  public static void main(String[] args) {
+    new Ex06_SwingGibon("스윙기본연습");
+  }
+}

@@ -6,7 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="점수눈"/>
 		<list key="findhistory">
+			<item value="점수눈"/>
 		</list>
 		<list key="replacehistory">
 		</list>

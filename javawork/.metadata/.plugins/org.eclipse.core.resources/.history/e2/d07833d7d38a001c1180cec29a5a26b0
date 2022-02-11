@@ -1,0 +1,19 @@
+package day0211;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Ex01_Format {
+  public static void main(String[] args) {
+    Date date = new Date();
+    System.out.println(date);
+    
+    // 날짜, 시간을 원하는 형식으로 출력
+    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    System.out.println(sdf1.format(date));
+    
+    // a : 오전/오후
+    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd a HH:mm:ss");
+    System.out.println(sdf2.format(date));
+  }
+}
