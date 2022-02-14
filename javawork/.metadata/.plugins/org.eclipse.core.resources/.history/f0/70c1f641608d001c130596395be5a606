@@ -1,0 +1,59 @@
+package day0214;
+
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
+
+public class Ex07_TestLabel extends JFrame {
+  JTextField text1, text2;
+  Container cp;
+  JLabel label1, label2, label3, label4;
+  Icon icon1 = new ImageIcon("C:\\sist\\image\\swingimage\\an07.gif");
+  Icon icon2 = new ImageIcon("C:\\sist\\image\\swingimage\\an08.gif");
+
+  public Ex07_TestLabel(String title) {
+    super(title);
+    cp = this.getContentPane();
+    this.setBounds(200, 100, 400, 500);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    cp.setBackground(new Color(255, 200, 155));
+
+    initDesign();
+
+    this.setVisible(true);
+  }
+
+  public void initDesign() {
+    this.setLayout(null);
+    
+    text1 = new JTextField();
+    text1.setBounds(10, 20, 90, 30);
+    this.add(text1);
+    
+    text2 = new JTextField("Have a Nice Day!!");
+    text2.setBounds(10, 60, 150, 30);
+    this.add(text2);
+    
+    label1 = new JLabel("안녕하세요", JLabel.CENTER);
+    label1.setBounds(10, 100, 200, 30);
+    label1.setBackground(Color.gray);
+    label1.setOpaque(true);
+    this.add(label1);
+    
+    label2 = new JLabel("Today", icon1, JLabel.RIGHT);
+    label2.setBounds(10, 150, 200, 30);
+    label2.setBorder(new LineBorder(Color.red));
+    this.add(label2);
+  }
+
+
+  public static void main(String[] args) {
+    new Ex07_TestLabel("텍스트 라벨 7");
+  }
+
+}

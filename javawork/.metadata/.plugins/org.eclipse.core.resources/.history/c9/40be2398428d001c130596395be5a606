@@ -1,0 +1,22 @@
+package day0214;
+
+import java.awt.Color;
+import javax.swing.JFrame;
+
+public class Ex04_ButtonEvent extends JFrame{
+  
+  public Ex04_ButtonEvent(String title) {
+    super(title);
+    
+    this.setBounds(200, 100, 400, 500);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.getContentPane().setBackground(new Color(255, 200, 155));
+
+    initDesign();
+
+    this.setVisible(true);
+  }
+  public static void main(String[] args) {
+    new Ex04_ButtonEvent("버튼이벤트 4");
+  }
+}

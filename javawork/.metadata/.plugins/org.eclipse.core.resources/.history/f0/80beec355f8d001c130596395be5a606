@@ -1,0 +1,48 @@
+package day0214;
+
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Ex07_TestLabel extends JFrame {
+  JTextField text1, text2;
+  Container cp;
+  JLabel jLabel1, jLabel2;
+  Icon icon1 = new ImageIcon("C:\\sist\\image\\swingimage\\an07.gif");
+  Icon icon2 = new ImageIcon("C:\\sist\\image\\swingimage\\an08.gif");
+
+  public Ex07_TestLabel(String title) {
+    super(title);
+    cp = this.getContentPane();
+    this.setBounds(200, 100, 400, 500);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    cp.setBackground(new Color(255, 200, 155));
+
+    initDesign();
+
+    this.setVisible(true);
+  }
+
+  public void initDesign() {
+    this.setLayout(null);
+    
+    text1 = new JTextField();
+    text1.setBounds(10, 20, 90, 30);
+    this.add(text1);
+    
+    text2 = new JTextField("Have a Nice Day!!");
+    text2.setBounds(10, 60, 150, 30);
+    this.add(text2);
+  }
+
+
+  public static void main(String[] args) {
+    new Ex07_TestLabel("텍스트 라벨 7");
+  }
+
+}
