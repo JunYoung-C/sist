@@ -1,0 +1,45 @@
+package day0215;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+
+public class Ex01_SwingLabel extends JFrame {
+  JTextField ltText, rtText;
+  JLabel resultLabel;
+  JButton operationBtn;
+  Container cp = this.getContentPane();
+
+  public Ex01_SwingLabel(String title) {
+    super(title);
+    this.setBounds(200, 100, 800, 800);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    cp.setBackground(new Color(255, 200, 155));
+
+    initDesign();
+
+    this.setVisible(true);
+  }
+
+  public void initDesign() {
+
+  }
+
+
+  public static void main(String[] args) {
+    new Ex01_SwingLabel("2/14일 숙제");
+  }
+
+}

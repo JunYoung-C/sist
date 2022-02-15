@@ -1,0 +1,49 @@
+package day0215;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.JFrame;
+import javax.swing.JTable;
+
+public class Ex04_JTable extends JFrame implements ActionListener, ItemListener {
+  Container cp = this.getContentPane();
+  JTable table;
+
+
+  public Ex04_JTable(String title) {
+    super(title);
+    this.setBounds(100, 100, 400, 400);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    cp.setBackground(new Color(255, 255, 155));
+
+    setDesign();
+
+    this.setVisible(true);
+  }
+
+  public void setDesign() {
+    String[][] data = {{"송혜교", "서울", "010-7777-8888"}, {"강호동", "제주", "010-8888-5274"},
+        {"하하", "인천시", "010-1111-2222"},};
+
+    String[] title = {"이름", "주소", "연락처"};
+  }
+
+  // 운전 면허, 라벨 굵기
+  @Override
+  public void itemStateChanged(ItemEvent e) {
+
+  }
+
+  @Override
+  public void actionPerformed(ActionEvent e) {
+
+  }
+
+  public static void main(String[] args) {
+    new Ex04_JTable("라디오 & 체크");
+  }
+}

@@ -1,0 +1,35 @@
+package day0215;
+
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Ex01_SwingLabel extends JFrame {
+  JLabel[] labels = new JLabel[9];
+  String[] str = {"그리스", "이탈리아", "터키", "오스트리아", "체코", "일본", "영국", "캐나다", "미국"};
+  JButton btnOk;
+  Container cp = this.getContentPane();
+
+  public Ex01_SwingLabel(String title) {
+    super(title);
+    this.setBounds(100, 100, 600, 600);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    cp.setBackground(new Color(255, 255, 155));
+
+    initDesign();
+
+    this.setVisible(true);
+  }
+
+  public void initDesign() {
+
+  }
+
+
+  public static void main(String[] args) {
+    new Ex01_SwingLabel("2/14일 숙제");
+  }
+
+}
