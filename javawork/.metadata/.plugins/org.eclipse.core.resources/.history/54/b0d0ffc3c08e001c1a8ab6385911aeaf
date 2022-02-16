@@ -1,0 +1,53 @@
+package day0216;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Vector;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
+
+public class Ex01_RadioReview extends JFrame implements ActionListener{
+  Container cp = this.getContentPane();
+  JTable table1, table2, table3;
+  JTextArea area;
+
+
+  public Ex01_RadioReview(String title) {
+    super(title);
+    this.setBounds(100, 100, 600, 600);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    cp.setBackground(new Color(255, 255, 155));
+
+    setDesign();
+
+    this.setVisible(true);
+  }
+
+  public void setDesign() {
+
+  }
+
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  public static void main(String[] args) {
+    new Ex01_RadioReview("스윙 라디오 1");
+  }
+
+}

@@ -1,0 +1,46 @@
+package day0216;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FileDialog;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.plaf.FontUIResource;
+
+public class Ex03_SwingFileDialog extends JFrame {
+  Container cp;
+  JTextArea area; // 파일 불러올 곳
+  JButton btnOpen, btnSave;// 파일 저장, 파일 열기
+
+  public Ex03_SwingFileDialog(String title) {
+    super(title);
+    cp = this.getContentPane();
+    this.setBounds(100, 100, 400, 400);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    cp.setBackground(new Color(255, 255, 155));
+
+    setDesign();
+
+    this.setVisible(true);
+  }
+
+
+  public void setDesign() {}
+
+  public static void main(String[] args) {
+    new Ex03_SwingFileDialog("스윙 파일 저장 2");
+  }
+
+}
