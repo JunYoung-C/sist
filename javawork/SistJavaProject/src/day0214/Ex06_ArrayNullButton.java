@@ -20,10 +20,11 @@ public class Ex06_ArrayNullButton extends JFrame {
 
   public Ex06_ArrayNullButton(String title) {
     super(title);
-    cp = this.getContentPane();
+//    cp = this.getContentPane();
     this.setBounds(200, 100, 400, 500);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    cp.setBackground(new Color(255, 200, 155));
+//    cp.setBackground(new Color(255, 200, 155));
+    this.getContentPane().setBackground(new Color(255, 200, 155));
 
     initDesign();
 
