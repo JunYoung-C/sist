@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.awt.CheckboxGroup"/>
     <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
     <fullyQualifiedTypeName name="java.awt.GridLayout"/>
     <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="day0217.Ex11_ClientChat"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
     <fullyQualifiedTypeName name="day0217.Ex11_ServerChat.ClientList"/>
+    <fullyQualifiedTypeName name="java.net.SocketException"/>
 </qualifiedTypeNameHistroy>

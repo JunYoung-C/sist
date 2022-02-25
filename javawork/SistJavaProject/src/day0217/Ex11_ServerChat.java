@@ -80,18 +80,12 @@ public class Ex11_ServerChat extends JFrame implements Runnable {
               }
               break;
             case "9":
-              System.out.println(1);
-//              for (int i = 0; i < list.size(); i++) {
-//                System.out.println(2);
-//                ClientList cc = list.get(i);
-//                cc.pw.write(data + "님이 퇴장했습니다.\n");
-//                cc.pw.flush();
-//                System.out.println(3);
-//              }
-              for (ClientList cc : list) {
+              for (int i = 0; i < list.size(); i++) {
+                ClientList cc = list.get(i);
                 cc.pw.write(data + "님이 퇴장했습니다.\n");
-                cc.pw.flush(); // flush를 해야 네트워크 전송이 됨
+                cc.pw.flush();
               }
+
               // data가 퇴장하는 사람 닉네임이므로 벡터에서 찾아 삭제
               for (int i = 0; i < list.size(); i++) {
                 ClientList cc = list.get(i);
