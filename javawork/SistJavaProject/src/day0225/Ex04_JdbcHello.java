@@ -47,7 +47,7 @@ public class Ex04_JdbcHello {
     try {
       stmt = conn.createStatement();
       rs = stmt.executeQuery(sql);
-
+      
       System.out.println("번호\t이름\t주소\t생성날짜");
       System.out.println("----------------------------------");
 
