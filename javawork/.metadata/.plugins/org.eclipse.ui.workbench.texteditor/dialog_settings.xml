@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="System.out"/>
+		<item key="selection" value="delete"/>
 		<list key="findhistory">
+			<item value="delete"/>
 			<item value="System.out"/>
 			<item value="System.out.print"/>
 			<item value="System.out.println"/>
