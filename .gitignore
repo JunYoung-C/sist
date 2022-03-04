@@ -1,5 +1,6 @@
 ### Eclipse ###
 .metadata
+javawork/.metadata
 bin/
 tmp/
 *.tmp
