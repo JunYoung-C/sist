@@ -21,6 +21,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import sawon.respository.DbConnect;
+
 public class SawonDbSwing extends JFrame implements ItemListener, ActionListener {
 
   DbConnect db = new DbConnect();
@@ -31,6 +33,7 @@ public class SawonDbSwing extends JFrame implements ItemListener, ActionListener
   JRadioButton[] rb = new JRadioButton[6];
   JButton addBtn, deleteBtn;
 
+  int studentName;
   public SawonDbSwing(String title) {
     super(title);
     cp = this.getContentPane();
