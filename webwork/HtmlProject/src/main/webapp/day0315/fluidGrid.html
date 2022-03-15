@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 미디어 쿼리 구문
+  @media 미디어유형[and조건][and]
+  @media screen (min-width: 200px) and (max-width: 400px)
+  
+  뷰포트 지정. 요즘 추세는 휴대폰 너비에 화면 맞추고 초기 화면 비율을 1로 지정: 가장 많이 사용
+  <meta name="viewport" content="<속성값1>, <속성값2>, ..>"
+  -->
+
+    <style type="text/css">
+      #wrapper {
+        width: 95%;
+        margin: 0 auto;
+      }
+
+      header {
+        width: 100%;
+        height: 120px;
+        background-color: aqua;
+        border-bottom: 1px solid black;
+      }
+
+      .header-text {
+        font-size: 40px;
+        color: white;
+        text-align: center;
+        line-height: 120px;
+      }
+
+      .content {
+        float: left;
+        width: 61%;
+        height: 400px;
+        padding: 1.5123%;
+        background-color: beige;
+      }
+      .right-side {
+        float: right;
+        width: 32%;
+        height: 400px;
+        padding: 1.5123%;
+        background-color: blueviolet;
+      }
+      footer {
+        clear: both;
+        width: 100%;
+        height: 120px;
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header class="header-text">
+        <h1 class="header-text">고정 그리드 레이아웃</h1>
+      </header>
+
+      <section class="content">
+        <h4>본문</h4>
+      </section>
+
+      <aside class="right-side">
+        <h4>사이드바</h4>
+      </aside>
+
+      <footer>
+        <h4>푸터</h4>
+      </footer>
+    </div>
+  </body>
+</html>

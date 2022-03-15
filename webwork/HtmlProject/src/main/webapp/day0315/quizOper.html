@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const id = window.prompt("아이디를 입력해 주세요");
+      const password = window.prompt("비밀번호를 입력해 주세요");
+
+      function login(id, password) {
+        if (id === "angel" && password === "1234") {
+          document.write("angel님 방문을 환영합니다.");
+        } else if (id === "angel") {
+          document.write("잘못된 비밀번호 입니다.");
+        } else {
+          document.write("존재하지 않는 아이디입니다.");
+        }
+      }
+      login(id, password);
+    </script>
+  </body>
+</html>
