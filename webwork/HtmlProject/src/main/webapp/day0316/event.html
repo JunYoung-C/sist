@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="button" onclick="s_confirm()" value="눌러보세요" />
+    </div>
+    <script>
+      function s_confirm() {
+        const check = window.confirm("수강신청 했나요?");
+        if (check) {
+          window.alert("네 했어요");
+        } else {
+          window.alert("아직 안했어요");
+        }
+      }
+    </script>
+  </body>
+</html>
