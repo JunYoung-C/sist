@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .galary {
+        display: flex;
+        padding-left: 0;
+      }
+
+      .galary-img {
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+      }
+
+      div > img {
+        width: 100vw;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="galary"></ul>
+    <div class="image-box">
+      <img class="image-box__image" src="" alt="" />
+    </div>
+    <script>
+      const img_src = [
+        "beauty1",
+        "beauty2",
+        "beauty3",
+        "beauty4",
+        "bottle01",
+        "bottle02",
+        "bottle03",
+        "bottle04",
+        "oneday01",
+        "oneday02",
+      ];
+      const galary = document.querySelector(".galary");
+      const imgBoxImage = document.querySelector(".image-box__image");
+
+      function layout() {
+        for (let i = 0; i < img_src.length; i++) {
+          const galaryElement = document.createElement("list");
+          const galaryImg = document.createElement("img");
+          galaryImg.src = "../image/" + img_src[i] + ".jpg";
+          galaryImg.classList.add("galary-img");
+          galaryElement.appendChild(galaryImg);
+          galary.appendChild(galaryElement);
+        }
+
+        galary.addEventListener("click", (event) => {
+          const target = event.target;
+          console.log(target);
+          if (target.tagName == "IMG") {
+            imgBoxImage.src = target.src;
+          }
+        });
+      }
+      window.onload = function () {
+        layout();
+      };
+    </script>
+  </body>
+</html>
