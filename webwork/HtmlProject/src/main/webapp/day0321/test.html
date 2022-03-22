@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      window.onload = function () {
+        function ok() {
+          alert("했습니다.");
+        }
+
+        function no() {
+          alert("아직입니다.");
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>수강 신청 확인</legend>
+        <input type="button" value="예" onclick="ok()" />
+        <input type="button" value="아니오" onclick="no()" />
+      </fieldset>
+    </form>
+  </body>
+</html>

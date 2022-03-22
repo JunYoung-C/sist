@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .selected-image {
+        /* border-style: dotted; */
+        border-color: red;
+        border-width: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="select-image">
+      <span>이미지를 선택하세요<br /></span>
+      <select name="" id="">
+        <option value="0">선택 1</option>
+        <option value="1">선택 2</option>
+        <option value="2">선택 3</option>
+        <option value="3">선택 4</option>
+        <option value="4">선택 5</option>
+      </select>
+    </div>
+    <div class="select-radio">
+      <span>테두리를 선택하세요<br /></span>
+      <input type="radio" name="border" id="choice1" value="solid" />
+      <label for="choice1">Solid</label>
+      <input type="radio" name="border" id="choice2" value="dotted" />
+      <label for="choice2">Dotted</label>
+      <input type="radio" name="border" id="choice3" value="double" />
+      <label for="choice3">Double</label>
+      <input type="radio" name="border" id="choice4" value="dashed" />
+      <label for="choice4">Dashed</label>
+    </div>
+    <div class="image-wrap">
+      <img src="../image/beauty1.jpg" alt="" class="selected-image" />
+    </div>
+    <script>
+      const selectImg = document.querySelector(".select-image");
+      const selectRadio = document.querySelector(".select-radio");
+      const selectedImg = document.querySelector(".selected-image");
+      const imagePath = [
+        "../image/beauty1.jpg",
+        "../image/beauty2.jpg",
+        "../image/beauty3.jpg",
+        "../image/beauty4.jpg",
+        "../image/beauty5.jpg",
+      ];
+
+      selectImg.addEventListener("change", (e) => {
+        const index = e.target.value;
+        selectedImg.src = imagePath[index];
+      });
+
+      selectRadio.addEventListener("click", (e) => {
+        console.log(e.target.value);
+        selectedImg.setAttribute("style", "border-style: " + e.target.value);
+      });
+    </script>
+  </body>
+</html>
