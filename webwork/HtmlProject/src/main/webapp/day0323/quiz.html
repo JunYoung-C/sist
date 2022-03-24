@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .image {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../image/image_03.png" alt="" class="image" />
+    <img src="../image/image_03.png" alt="" class="image" />
+    <img src="../image/image_03.png" alt="" class="image" />
+    <img src="../image/image_03.png" alt="" class="image" />
+    <img src="../image/image_03.png" alt="" class="image" />
+
+    <script>
+      const images = [
+        "../image/beauty1.jpg",
+        "../image/beauty2.jpg",
+        "../image/beauty3.jpg",
+        "../image/beauty4.jpg",
+        "../image/bottle01.jpg",
+      ];
+      const imageSrc = "../image/image_03.png";
+      $(".image").mouseover(function () {
+        const index = parseInt(Math.random() * images.length);
+        $(this).attr("src", images[index]);
+      });
+
+      $(".image").mouseleave(function () {
+        $(this).attr("src", imageSrc);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      $("h2").eq(0).html("<b>H2태그입니다.</b>"); // 방법 1
+      $("h2:eq(0)").html("<b>H2태그입니다.</b>"); // 방법 2
+      $("h2:first").html("<b>H2태그입니다.</b>"); // 방법 3
+      $("h2").first().html("<b>H2태그입니다.</b>"); // 방법 4
+      // .text는 태그가 포함된 문자인 경우에도 태그 자체가 글자로 나간다.
+      // .html은 태그가 포함된 경우 태그가 실제로 적용된 상태로 나간다.
+    </script>
+  </body>
+</html>

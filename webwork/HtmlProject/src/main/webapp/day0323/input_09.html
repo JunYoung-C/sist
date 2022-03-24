@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- input[type=타입] 셀렉터를 구체적으로 쓰면 선택적으로 적용 가능 ex)input[type=text]
+    
+    text() - 선택 요소의 텍스트 설정하거나 해당값 반환
+    html() - 선택 요소의 컨텐츠 자체를 설정하거나 해당 값 반환
+    val() - 폼 필드의 값을 설정하거나 해당 값 반환 -->
+
+    <script>
+      $("#txtg").keyup(function () {
+        if (isNaN($(this).val())) {
+          return;
+        }
+
+        g = $(this).val();
+        color = color;
+        $("div").css("background-color".color);
+      });
+    </script>
+  </body>
+</html>
