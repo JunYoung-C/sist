@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="one">
+      첫번째 div
+      <div class="hana">div 하나</div>
+      <div>div 둘</div>
+      <div>div 셋</div>
+      <h3>h3 Tag</h3>
+      <h4>h4 Tag</h4>
+    </div>
+
+    <div class="two">
+      두번째 div
+      <div class="hana">div 하나</div>
+      <div>div 둘</div>
+      <div>div 셋</div>
+      <h3>h3 Tag</h3>
+      <h4>h4 Tag</h4>
+    </div>
+
+    <script>
+      // parent() : 부모태그
+      // siblings() : 형제태그
+      // children() : 자식태그
+
+      $("div.one div.hana").siblings().css("color", "red");
+      $("div.two").click(function () {
+        $(this).siblings().find("h3").hide("slow");
+      });
+    </script>
+  </body>
+</html>

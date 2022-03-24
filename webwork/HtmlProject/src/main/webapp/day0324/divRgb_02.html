@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>0</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <span>스팬</span>
+    <script>
+      $("div").css({
+        width: "120px",
+        height: "120px",
+        border: "1px solid gray",
+        float: "left",
+        "font-size": "20px",
+        "text-align": "center",
+        "line-height": "120px",
+        cursor: "pointer",
+      });
+
+      $("span").css("font-size", "20px");
+
+      for (let i = 0; i < $("div").length; i++) {
+        const r = parseInt(Math.random() * 256);
+        const g = parseInt(Math.random() * 256);
+        const b = parseInt(Math.random() * 256);
+
+        const color = "rgb(" + r + "," + g + "," + b + ")";
+        $("div").eq(i).css("background-color", color);
+      }
+
+      $("div").click(function () {
+        const color = $(this).css("background-color");
+        console.log(color);
+        $("span").css("background-color", color);
+        $("span").text(color);
+      });
+    </script>
+  </body>
+</html>

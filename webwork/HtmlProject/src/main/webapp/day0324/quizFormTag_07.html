@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #result {
+      font-size: 30px;
+    }
+  </style>
+  <body>
+    <h3>폼태그 문제</h3>
+
+    <div>
+      <h4 id="selcolor">글자색</h4>
+      <input type="radio" name="fcolor" value="#ff00ff" />핑크
+      <input type="radio" name="fcolor" value="#228b22" />초록
+      <input type="radio" name="fcolor" value="#822222" />브라운
+      <input
+        type="radio"
+        name="fcolor"
+        value="#9370d8"
+        checked="checked/"
+      />퍼플
+
+      <h4>글꼴</h4>
+      <select name="" id="selfont">
+        <option value="Gamja Flower">Gamja Flower</option>
+        <option value="Nanum Brush Script">Nanum Brush Script</option>
+        <option value="Nanum Pen Script">Nanum Pen Script</option>
+        <option value="Impact">Impact</option>
+      </select>
+
+      <h4>체크된 이미지 출력</h4>
+      <input type="checkbox" name="imge" value="01" />아이콘1
+      <input type="checkbox" name="imge" value="02" />아이콘2
+      <input type="checkbox" name="imge" value="03" />아이콘3
+      <input type="checkbox" name="imge" value="04" />아이콘4
+
+      <br /><br />
+      <button type="button" id="btn">선택한 값 모두 적용하기</button>
+    </div>
+
+    <div id="result">
+      여러분!! 오늘은 즐거운 목요일입니다.
+      <div class="myimg"></div>
+    </div>
+
+    <script>
+      const images = {
+        "01": "../image/02.png",
+        "02": "../image/08.png",
+        "03": "../image/09.png",
+        "04": "../image/12.png",
+      };
+      $("#btn").click(function () {
+        $("#result").css({
+          color: $("input[type='radio']:checked").val(),
+          "font-family": $("#selfont option:selected").val(),
+        });
+        let s = "";
+        $("input[type='checkbox']:checked").each(function (idx, e) {
+          s += "<img src='" + images[$(this).val()] + "'/>";
+        });
+        if (s.length !== 0) {
+          $(".myimg").html(s);
+        }
+      });
+    </script>
+  </body>
+</html>

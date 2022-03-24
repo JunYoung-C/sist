@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table class="table table-bordered">
+      <tr>
+        <th width="100">이름</th>
+        <td width="300">
+          <input type="text" id="name" style="width: 150px" />
+        </td>
+      </tr>
+
+      <tr>
+        <th width="100">JAVA</th>
+        <td width="300">
+          <input type="text" id="java" style="width: 150px" />
+        </td>
+      </tr>
+
+      <tr>
+        <th width="100">ORACLE</th>
+        <td width="300">
+          <input type="text" id="oracle" style="width: 150px" />
+        </td>
+      </tr>
+
+      <tr>
+        <th width="100">HTML</th>
+        <td width="300">
+          <input type="text" id="html" style="width: 150px" />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center">
+          <button type="button" id="btn">결과 출력</button>
+        </td>
+      </tr>
+
+      <tr height="150">
+        <td colspan="2" align="center">
+          <div id="result"></div>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      $("#btn").click(function () {
+        const name = $("#name").val();
+        const java = $("#java").val();
+        const oracle = $("#oracle").val();
+        const html = $("#html").val();
+
+        if (name.length == 0) {
+          alert("이름을 입력해 주세요");
+          $("#name").focus();
+          return;
+        }
+
+        if (isNaN(java) || java.length === 0) {
+          alert("java는 숫자로만 입력해주세요");
+          $("#java").focus();
+          return;
+        }
+      });
+    </script>
+  </body>
+</html>

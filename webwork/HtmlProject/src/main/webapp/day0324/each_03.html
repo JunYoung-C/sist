@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bg_0 {
+        background-color: orange;
+        color: blue;
+      }
+      .bg_1 {
+        background-color: pink;
+        color: gray;
+      }
+      .bg_2 {
+        background-color: cyan;
+        color: black;
+      }
+      .bg_3 {
+        background-color: gray;
+        color: white;
+      }
+      .bg_4 {
+        background-color: yellow;
+        color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+
+    <hr />
+
+    <ul>
+      <li>apple</li>
+      <li>kiwi</li>
+      <li>banana</li>
+      <li>strawberry</li>
+      <li>manggo</li>
+    </ul>
+    <script>
+      $("b").each(function (i, element) {
+        // $(this).text(i);
+        $(element).text(i);
+      });
+
+      $("ul li").each(function (idx) {
+        $(this).addClass("bg_" + idx);
+      });
+
+      $("ul li").mouseover(function () {
+        $(this).append("<b>***</b>");
+        // $(this).after("<b>***</b>");
+      });
+
+      $("ul li").mouseout(function () {
+        $(this).find("b").remove();
+      });
+    </script>
+  </body>
+</html>
