@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+
+      .blue {
+        color: blue;
+      }
+
+      h5 {
+        font-size: 25px;
+      }
+
+      .content {
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content red">
+      <b>내용1</b>
+      <div class="answer">
+        <h5>내용1에 대한 댓글</h5>
+        <h5>내용1에 대한 댓글</h5>
+        <h5>내용1에 대한 댓글</h5>
+      </div>
+    </div>
+
+    <div class="content green">
+      <b>내용2</b>
+      <div class="answer">
+        <h5>내용2에 대한 댓글</h5>
+        <h5>내용2에 대한 댓글</h5>
+        <h5>내용2에 대한 댓글</h5>
+      </div>
+    </div>
+
+    <div class="content blue">
+      <b>내용3</b>
+      <div class="answer">
+        <h5>내용3에 대한 댓글</h5>
+        <h5>내용3에 대한 댓글</h5>
+        <h5>내용3에 대한 댓글</h5>
+      </div>
+    </div>
+
+    <script>
+      $(".answer").hide();
+      $("b").click(function () {
+        $(this).siblings().show();
+        $(this).parent().siblings().find(".answer").hide();
+      });
+    </script>
+  </body>
+</html>

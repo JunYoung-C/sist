@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        border: 2px groove orange;
+        border-radius: 50px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .large {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left: 200px;
+        top: 250px;
+        border: 10px inset gold;
+      }
+
+      .im {
+        width: 120px;
+        height: 120px;
+        margin-left: 50px;
+      }
+    </style>
+    <script>
+      $(function () {
+        $("img.large").attr("src", $("img:eq(0)").attr("src"));
+
+        $("img.im").hover(
+          function () {
+            $(this).css("transform", "rotate(45deg)");
+          },
+          function () {
+            $(this).css("transform", "rotate(0deg)");
+          }
+        );
+
+        $("img.im").click(function () {
+          $("img.large").attr("src", $(this).attr("src"));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="show"></div>
+    <img src="" alt="" class="large" id="large" />
+    <script>
+      const imgInfo = [
+        { name: "../image/02.png" },
+        { name: "../image/08.png" },
+        { name: "../image/09.png" },
+        { name: "../image/12.png" },
+        { name: "../image/a.png" },
+      ];
+
+      let s = "";
+      $.each(imgInfo, function (i, element) {
+        s += "<img class='im' src='" + element["name"] + "'>";
+      });
+      $("#show").html(s);
+    </script>
+  </body>
+</html>

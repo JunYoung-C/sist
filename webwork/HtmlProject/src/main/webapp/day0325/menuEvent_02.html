@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      div.sist {
+        position: absolute;
+        left: 300px;
+        top: 100px;
+        width: 250px;
+        height: 220px;
+        border: 2px groove gray;
+        border-radius: 30px;
+      }
+
+      ul li {
+        list-style: none;
+      }
+
+      ul.menu > li {
+        font-size: 2em;
+        font-family: "Gamja Flower";
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      ul.submenu > li {
+        font-size: 22px;
+        font-family: "Nanum Brush Script";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sist">
+      <ul class="menu">
+        <li>
+          File
+          <ul class="submenu">
+            <li>New</li>
+            <li>OpenFile</li>
+            <li>Save</li>
+            <li>Rename</li>
+          </ul>
+        </li>
+
+        <li>
+          Edit
+          <ul class="submenu">
+            <li>cut</li>
+            <li>copy</li>
+            <li>find</li>
+            <li>add</li>
+          </ul>
+        </li>
+
+        <li>
+          Help
+          <ul class="submenu">
+            <li>search</li>
+            <li>tip</li>
+            <li>check</li>
+            <li>about</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      $(function () {
+        $("ul.submenu").hide("slow");
+
+        $("ul.menu>li").click(function () {
+          $(this).find("ul.submenu").show("slow");
+          $(this).siblings().find("ul.submenu").hide("show");
+        });
+      });
+    </script>
+  </body>
+</html>
