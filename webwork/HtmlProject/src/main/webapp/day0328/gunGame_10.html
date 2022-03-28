@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        list-style: none;
+      }
+
+      body {
+        background-image: url("../image/bg.png");
+        background-size: cover;
+      }
+
+      #sunban-wrapper {
+        width: 800px;
+        margin: 100px auto;
+      }
+
+      #control-wrapper {
+        width: 300px;
+        height: 420px;
+        position: fixed;
+        left: 0;
+        top: 150px;
+      }
+
+      .sunban {
+        height: 150px;
+        margin-bottom: 50px;
+        width: 790px;
+        background: url("../image/sunban.png") no-repeat center bottom;
+      }
+
+      .sunban li {
+        float: left;
+        width: 120px;
+        height: 120px;
+        cursor: pointer;
+      }
+
+      .gun {
+        width: 300px;
+        height: 250px;
+        background: url("../image/gun.png") no-repeat;
+        cursor: pointer;
+        text-indent: -100px;
+      }
+
+      .gun:active {
+        background-position: bottom;
+      }
+
+      #msg {
+        font-family: "Nanum Pen Script";
+        font-size: 28pt;
+        position: absolute;
+        left: 700px;
+        top: 500px;
+        border: 10px groove orange;
+        width: 500px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="control-wrapper">
+      <div class="gun">총</div>
+      <ul class="money">
+        <li><img src="../image/money.png" alt="" /></li>
+        <li><img src="../image/money.png" alt="" /></li>
+        <li><img src="../image/money.png" alt="" /></li>
+      </ul>
+    </div>
+
+    <div id="sunban-wrapper">
+      <ul class="sunban">
+        <li><img src="../image/01.png" alt="" /></li>
+        <li><img src="../image/02.png" alt="" /></li>
+        <li><img src="../image/03.png" alt="" /></li>
+        <li><img src="../image/04.png" alt="" /></li>
+        <li><img src="../image/05.png" alt="" /></li>
+        <li><img src="../image/06.png" alt="" /></li>
+      </ul>
+
+      <ul class="sunban">
+        <li><img src="../image/07.png" alt="" /></li>
+        <li><img src="../image/08.png" alt="" /></li>
+        <li><img src="../image/09.png" alt="" /></li>
+        <li><img src="../image/10.png" alt="" /></li>
+        <li><img src="../image/11.png" alt="" /></li>
+        <li><img src="../image/12.png" alt="" /></li>
+      </ul>
+    </div>
+
+    <div id="msg"></div>
+
+    <script>
+      $(function () {
+        const jang = new Audio("../audio/jang.wav");
+
+        $(".gun").click(function () {
+          jang.play();
+
+          // 0 ~ 11 난수 발생
+          //해당 인덱스 인형이 이미 숨졌다면,  "2번째 인형이 이미 처리되었습니다."
+          // 만약 아닐경우 "2번째 인형을 맞췄네요" 메세지 출력 후 hide
+          //힌트 : $(".sunban img").equ(1).is(":hidden") --> truu/false
+          //다른 방법도 가능
+
+          // 12개를 모두 맞추면 메세지 창에 you win!! 출력하기
+
+          // 지폐를 클릭 시 해당 지폐를 사라지게 하면서 인형 12개를 모두 보이게 한다.
+          // 메세지 창에 다시 셋팅 완료!! 게임 시작
+        });
+      });
+    </script>
+  </body>
+</html>

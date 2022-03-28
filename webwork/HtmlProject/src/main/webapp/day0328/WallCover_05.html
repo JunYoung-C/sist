@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        list-style: none;
+      }
+
+      body {
+        background-color: #fff;
+      }
+
+      div.wall {
+        width: 800px;
+        height: 600px;
+        margin: 100px auto;
+        background-color: #999;
+        position: relative;
+        border-radius: 5px;
+        border: 5px solid #333;
+      }
+
+      h1.title {
+        font-size: 30px;
+        position: absolute;
+        right: 10px;
+        top: 80px;
+        width: 150px;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      div.wall ul.list {
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        border-top: 1px solid #666;
+      }
+
+      ul.list li {
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+        width: 70px;
+        height: 70px;
+        border: 5px solid #333;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      div.wall ul.list li img {
+        width: 100%;
+      }
+
+      ul.list li.active {
+        border-color: #ff1493;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wall">
+      <h1 class="title">Select Page</h1>
+      <img src="../image/cover2.png" alt="" />
+      <ul class="list">
+        <li>
+          <img src="../image/b01.png" alt="" title="Pear" />
+        </li>
+        <li>
+          <img src="../image/b02.png" alt="" title="Checker" />
+        </li>
+        <li>
+          <img src="../image/b03.png" alt="" title="Bamboo" />
+        </li>
+        <li>
+          <img src="../image/b04.png" alt="" title="School" />
+        </li>
+        <li>
+          <img src="../image/b05.png" alt="" />
+        </li>
+        <li>
+          <img src="../image/b06.png" alt="" />
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      $(function () {
+        $(".list li img").click(function () {
+          $(this).parent().addClass("active");
+
+          $(this).parent().sibling.removeClass("active");
+
+          const title = $(this).attr("title");
+          $("h1.title").html(title);
+
+          const imgSrc = $(this).attr("src");
+          const url = "url('" + imgSrc + "')";
+          $("div.wall").css("background-image", url);
+        });
+      });
+    </script>
+  </body>
+</html>
