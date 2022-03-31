@@ -1,3 +1,5 @@
+<%@page import="team.TeamDao"%>
+<%@page import="team.TeamDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,22 +17,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
-<%
-request.setCharacterEncoding("utf-8");
-String city = request.getParameter("city");
-String[] cities = request.getParameterValues("city2");
-%>
 <body>
-  <h2>희망 지역</h2>
-  1순위: [<%=city%>]
-  <br> 2순위:
   <%
-  for (int i = 0; i < cities.length; i++) {
-  %>
-  [<%=cities[i]%>],
-  <%
-  }
+  request.setCharacterEncoding("utf-8");
+
+  //입력값 읽기
+  String name = request.getParameter("name");
+  String driver = request.getParameter("driver");// 체크시 on, 미체크시 null
+  String addr = request.getParameter("addr"); 
+
+  // dto 선언
+  TeamDto dto = new TeamDto();
+  dto.setName(name);
+  dto.setDriver(driver == null ? "없음" : "있음");
+  dto.setAddr(addr);
+  
+  // dao 선언
+  TeamDao dao = new TeamDao();
+  
+  dao.teamInsert(dto);
+  
+  response.sendRedirect("teamlist.jsp");
   %>
 </body>
 </html>
