@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" id="frm">
+      <table class="table table-borderd" style="width: 400px">
+        <tr>
+          <th width="100" bgcolor="orange">상품코드</th>
+          <td>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              style="width: 100px"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <th width="100" bgcolor="orange">상품명</th>
+          <td>
+            <input
+              type="text"
+              name="sang"
+              id="sang"
+              class="form-control"
+              style="width: 100px"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <th width="100" bgcolor="orange">가격</th>
+          <td>
+            <input
+              type="text"
+              name="price"
+              id="price"
+              class="form-control"
+              style="width: 100px"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <th width="100" bgcolor="orange">색상</th>
+          <td>
+            <input type="radio" name="color" id="color" value="yello" />노랑
+            <input type="radio" name="color" id="color" value="yello" />빨강
+            <input type="radio" name="color" id="color" value="yello" />회색
+            <input type="radio" name="color" id="color" value="yello" />노랑
+            <input type="radio" name="color" id="color" value="yello" />노랑
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center">
+            <button
+              type="button"
+              id="btn"
+              class="btn btn-success"
+              style="width: 200px"
+            >
+              데이터 백엔드 보내기
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

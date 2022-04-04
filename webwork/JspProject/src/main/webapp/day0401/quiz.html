@@ -57,7 +57,7 @@
               .find("food")
               .each(function (i, ele) {
                 const foodTag = $(ele);
-                const num = foodTag.find("num").text();
+                const num = foodTag.attr("num");
                 const foodName = foodTag.find("foodname").text();
                 const foodPhoto = foodTag.find("foodphoto").text();
                 const price = foodTag.find("price").text();

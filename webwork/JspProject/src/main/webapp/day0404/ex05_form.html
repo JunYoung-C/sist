@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>폼 태그에 데이터 입력 후 jsp로 보내기</h3>
+    이름: <input type="text" , id="name" size="10" /><br />
+    핸드폰: <input type="text" , id="hp" size="10" /><br />
+    <button type="button" id="btn1">ajax로 서버에 데이터 보내기1</button>
+    <button type="button" id="btn2">ajax로 서버에 데이터 보내기2</button>
+    <hr />
+    <div id="show"></div>
+
+    <script>
+      $("#btn1").click(function () {
+        const name = $("#name").val();
+        const hp = $("hp").val();
+
+        const data = "name=" + name + "&hp=" + hp; // 방법 1
+
+        $.ajax({
+          type: "get",
+          url: "ex05_read.jsp",
+          dataType: "html", //백엔드에서 아무것도 리턴 안할 경우
+          data: data,
+          success: function (data) {
+            alert("success");
+          },
+        });
+      });
+
+      $("#btn2").click(function () {
+        const name = $("#name").val();
+        const hp = $("hp").val();
+
+        const data = "name=" + name + "&hp=" + hp; // 방법 1
+
+        $.ajax({
+          type: "get",
+          url: "ex05_read2.jsp",
+          dataType: "xml",
+          data: {"name": name, "hp": hp},
+          success: function (data) {
+            alert("success");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
