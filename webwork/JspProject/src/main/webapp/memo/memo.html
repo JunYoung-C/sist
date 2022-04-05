@@ -16,15 +16,354 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style>
+      div.memo {
+        position: absolute;
+        border: 0px solid gray;
+        font-family: "Gamja Flower";
+        font-size: 1.4em;
+      }
+
+      div.button {
+        line-height: 150px;
+        top: 30px;
+        width: 400px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+      }
+
+      div.list {
+        left: 700px;
+        top: 100px;
+        width: 600px;
+        height: 700px;
+        padding: 20px 20px;
+      }
+
+      span.writeday {
+        float: right;
+        color: #bbb;
+      }
+
+      span.writer {
+        font-weight: bold;
+      }
+
+      div.addform {
+        left: 100px;
+        top: 150px;
+        width: 500px;
+        height: 400px;
+        padding: 20px 20px;
+      }
+
+      div.updateform {
+        left: 100px;
+        top: 150px;
+        width: 500px;
+        height: 400px;
+        padding: 20px 20px;
+      }
+
+      img.avatar {
+        cursor: pointer;
+      }
+
+      img.select {
+        border: 2px solid tomato;
+      }
+    </style>
+
+    <script>
+      $(function () {
+        // 처음 로딩시 목록 출력하기
+        list();
+
+        $("div.addform").hide();
+        $("div.updateform").hide();
+
+        //메모 추가 버튼 누르면 addform 나오게
+        $("#btnadd").click(function () {
+          $("div.addform").slideToggle("fast");
+          $("div.updateform").hide();
+        });
+
+        $("img.avatar").eq(2).addClass("select");
+
+        $("#avatar").val($("img.avatar").eq(2).attr("src"));
+
+        // 아바타 선택시 input src 값 변경
+        $("img.avatar").click(function () {
+          $(this).siblings().removeClass("select");
+          $(this).addClass("select");
+          $("#avatar").val($(this).attr("src"));
+        });
+
+        $("img.uavatar").click(function () {
+          $(this).addClass("select");
+          $(this).siblings().removeClass("select");
+          $("#uavatar").val($(this).attr("src"));
+        });
+
+        // 저장
+        $("td.dbsave").click(function () {
+          const data = $("#addfrm").serialize();
+
+          $.ajax({
+            type: "post",
+            dataType: "html",
+            url: "memoInsert.jsp",
+            data: data,
+            success: function (data) {
+              // 데이터 입력 성공시 목록 다시 출력
+              list();
+
+              // 입력값 지우기
+              $("#writer").val("");
+              $("#content").val("");
+            },
+          });
+        });
+
+        $("td.dbupdate").click(function () {
+          const data = $("#updatefrm").serialize();
+          alert(data);
+          $.ajax({
+            type: "post",
+            dataType: "html",
+            url: "memoupdate.jsp",
+            data: data,
+            success: function (data) {
+              list();
+            },
+          });
+        });
+      });
+
+      $(document).on("click", "span.del", function () {
+        const num = $(this).attr("num");
+
+        $.ajax({
+          method: "post",
+          dataType: "text",
+          url: "memodelete.jsp",
+          data: { num: num },
+          success: function (data) {
+            list();
+          },
+        });
+      });
+
+      $(document).on("click", "span.mod", function () {
+        const num = $(this).attr("num");
+
+        $("#unum").val(num);
+
+        $.ajax({
+          type: "get",
+          dataType: "html",
+          url: "memogetdata.jsp",
+          data: { num: num },
+          success: function (data) {
+            const writer = $(data).find("writer").text();
+            const content = $(data).find("content").text();
+            const avatar = $(data).find("avatar").text();
+
+            $("#uwriter").val(writer);
+            $("#ucontent").val(content);
+            $("#uavatar").val(avatar);
+
+            $("img.uavatar").each(function (i, e) {
+              if ($(this).attr("src") == avatar) {
+                $(this).addClass("select");
+              } else {
+                $(this).removeClass("select");
+              }
+            });
+
+            $("div.addform").hide();
+            $("div.updateform").show();
+          },
+        });
+      });
+
+      function list() {
+        $.ajax({
+          type: "get",
+          dataType: "json",
+          url: "memoList.jsp",
+          success: function (data) {
+            let s = "";
+            if (data.length == 0) {
+              s += "<h3 class='alert alert-info'>저장된 메모가 없습니다.</h3>";
+            } else {
+              $.each(data, function (i, e) {
+                s += "<table class='table'>";
+                s += "<tr height='100'><td>";
+                s += "<span class='writer'>작성자: " + e.writer + "</span>";
+                s += "<span class='writeday'>" + e.writeday + "</span>";
+                s += "<br>";
+                s += "<pre>" + e.content;
+                s += "<img src='" + e.avatar + "' align='right' width='50'>";
+                s += "</pre>";
+                s += "</td></tr>";
+                s += "<span class='mod' num=" + e.num + ">수정</span>";
+                s += "<span class='del' num=" + e.num + ">삭제</span>";
+                s += "</table><br>";
+              });
+            }
+            $("div.list").html(s);
+          },
+        });
+      }
+    </script>
   </head>
   <body>
-    <div
-      class="memo_button"
-      class="btn btn-danger"
-      id="btnadd"
-      style="width: 120px"
-    >
-      메모 추가
+    <div class="memo button">
+      <button class="btn btn-danger" id="btnadd" style="width: 120px">
+        메모 추가
+      </button>
     </div>
+
+    <div class="memo addform">
+      <form action="" id="addfrm">
+        <table class="table table-bordered">
+          <caption>
+            메모 추가
+          </caption>
+          <tr>
+            <th width="100" bgcolor="#e6e6fa">작성자</th>
+            <td>
+              <input
+                type="text"
+                class="form-control input-sm"
+                name="writer"
+                id="writer"
+                style="width: 120px"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <th width="100" bgcolor="#e6e6fa">메모</th>
+            <td>
+              <textarea
+                class="form-control input-sm"
+                name="content"
+                id="content"
+                style="width: 300px; height: 100px"
+              ></textarea>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="100" bgcolor="#e6e6fa">아바타</th>
+            <td>
+              <input type="hidden" name="avatar" id="avatar" />
+              <script>
+                let tag = "";
+
+                for (let i = 1; i <= 9; i++) {
+                  tag +=
+                    "<img src='../image/0" +
+                    i +
+                    ".png' width='60' class='avatar'>";
+                  if (i == 5) {
+                    tag += "<br>";
+                  }
+                }
+
+                document.write(tag);
+              </script>
+            </td>
+          </tr>
+
+          <tr>
+            <td
+              colspan="2"
+              align="center"
+              bgcolor="#e6e6fa"
+              style="cursor: pointer; color: gray"
+              class="dbsave"
+            >
+              DB에 저장하기
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <div class="memo updateform">
+      <form action="" id="updatefrm">
+        <input type="hidden" id="unum" name="unum" />
+        <table class="table table-bordered">
+          <caption>
+            메모 수정
+          </caption>
+          <tr>
+            <th width="100" bgcolor="#e6e6fa">작성자</th>
+            <td>
+              <input
+                type="text"
+                class="form-control input-sm"
+                name="uwriter"
+                id="uwriter"
+                style="width: 120px"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <th width="100" bgcolor="#e6e6fa">메모</th>
+            <td>
+              <textarea
+                class="form-control input-sm"
+                name="ucontent"
+                id="ucontent"
+                style="width: 300px; height: 100px"
+              ></textarea>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="100" bgcolor="#e6e6fa">아바타</th>
+            <td>
+              <input type="hidden" name="uavatar" id="uavatar" />
+              <script>
+                let utag = "";
+
+                for (let i = 1; i <= 9; i++) {
+                  utag +=
+                    "<img src='../image/0" +
+                    i +
+                    ".png' width='60' class='uavatar'>";
+                  if (i == 5) {
+                    utag += "<br>";
+                  }
+                }
+
+                document.write(utag);
+              </script>
+            </td>
+          </tr>
+
+          <tr>
+            <td
+              colspan="2"
+              align="center"
+              bgcolor="#e6e6fa"
+              style="cursor: pointer; color: gray"
+              class="dbupdate"
+            >
+              DB에 수정하기
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <div class="memo list">list</div>
   </body>
 </html>

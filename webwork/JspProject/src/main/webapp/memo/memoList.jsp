@@ -13,7 +13,7 @@ List<MemoDto> list = dao.getAllDatas();
 
 JSONArray arr = new JSONArray();
 
-SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH:mm");
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
 for (MemoDto dto : list) {
   JSONObject ob =new JSONObject();
