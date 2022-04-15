@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h3>폼태그 #2</h3>
+<form action="action_13.jsp" method="post">
+  <table class="table table-bordered" style="width: 400px;">
+    <tr>
+      <th width="100" bgcolor="orange">상품명</th>
+      <td>
+        <input type="text" name="sang" class="form-control" required="required">
+      </td>
+    </tr>
+    
+    <tr>
+      <th width="100" bgcolor="orange">색상</th>
+      <td>
+        <input type="checkbox" name="scolor" value="orange">오렌지색
+        <input type="checkbox" name="scolor" value="pink">핑크
+        <input type="checkbox" name="scolor" value="gray">회색
+        <input type="checkbox" name="scolor" value="black" checked="checked">검정색
+      </td>
+    </tr>
+    
+    <tr>
+      <th width="100" bgcolor="orange">사이즈</th>
+      <td>
+        <input type="radio" name="ssize" value="90">90&nbsp;&nbsp;
+        <input type="radio" name="ssize" value="95">95&nbsp;&nbsp;
+        <input type="radio" name="ssize" value="100">100&nbsp;&nbsp;
+        <input type="radio" name="ssize" value="105">105&nbsp;&nbsp;
+      </td>
+    </tr>
+    
+    <tr>
+       <th width="100" bgcolor="orange">추가상품</th>
+       <td>
+         <select name="chuga" class="form-control">
+           <option value="요가매트">요가매트</option>
+           <option value="짐볼">짐볼</option>
+           <option value="양말">양말</option>
+           <option value="아령">아령</option>
+         </select>
+       </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" align="center">
+        <button type="submit" class="btn btn-info">서버로 전송</button>
+      </td>
+    </tr>
+  
+  </table>
+</form>
+</body>
+</html>

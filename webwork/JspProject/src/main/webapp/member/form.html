@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+<form action="formproc.jsp" method="post">
+  <table class="table table-bordered" style="width: 350px;">
+    <tr>
+      <th>이름</th>
+      <td>
+        <input type="text" name="name" size="7"
+        placeholder="이름" required="required" class="form-control">
+      </td>
+    </tr>
+    
+    <tr>
+      <th>연락처</th>
+      <td>
+        <input type="text" name="hp" size="20"
+        placeholder="핸드폰번호" required="required" class="form-control">
+      </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" value="전송" class="btn btn-info">
+        <input type="button" value="목록" 
+        onclick="location.href='memberlist.jsp'"
+        class="btn btn-danger">
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

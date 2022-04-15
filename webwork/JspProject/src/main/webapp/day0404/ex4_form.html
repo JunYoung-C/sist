@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h3>폼태그에 데이타 입력후 jsp로 보내기</h3>
+이름: <input type="text" id="name" size="10"><br>
+핸드폰:<input type="text" id="hp" size="10"><br>
+<button type="button" id="btn1">ajax로 서버에 보내기_#1</button>
+<button type="button" id="btn2">ajax로 서버에 보내기_#2</button>
+<hr>
+<div id="show"></div>
+<script type="text/javascript">
+$("#btn1").click(function(){
+	
+	//입력한 값들을 읽는다
+	var name=$("#name").val();
+	var hp=$("#hp").val();
+	
+	var data="name="+name+"&hp="+hp; //방법1
+	//alert(data);
+	
+	//ajax함수를 통해서 백앤드로 데이타를 보낸다
+	$.ajax({
+		
+		type:"get",
+		url:"ex4_read.jsp",
+		dataType:"html",  /*백앤드에서 아무것도 리턴안할경우  */
+		data:data,
+		success:function(data){
+			alert("success");
+		}
+		
+	});
+	
+});
+
+
+$("#btn2").click(function(){
+	
+	//입력한 값들을 읽는다
+	var name=$("#name").val();
+	var hp=$("#hp").val();
+	
+	//.ajsx함수를 통해서 백앤드로 데이타를 보낸다
+	$.ajax({
+		type:"get",
+		url:"ex4_read2.jsp",
+		dataType:"xml",
+		data:{"name":name,"hp":hp}, /* 방법2 */
+		success:function(data){
+			
+			var s="<h2>"+$(data).text()+" 님 데이타를 DB에 추가했어요</h2>";
+			
+			$("#show").html(s);
+		}
+		
+	});
+});
+
+
+
+
+</script>
+</body>
+</html>

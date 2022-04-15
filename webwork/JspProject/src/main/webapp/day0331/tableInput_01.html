@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table {
+	border: 2px solid gray;
+	width: 500px;
+}
+
+tr,th,td{
+	border: 1px dotted gray;
+	font-size: 10pt;
+}
+</style>
+</head>
+<body>
+<form action="action_01.jsp" method="post">
+	<table>
+		<caption>Radio&Check</caption>
+		<!--radiobox  -->
+		  <tr height="30">
+		    <td>
+		       <b>최종학력을 선택하시오</b>
+		       <!-- radiobox는 name이 동일해야 한다 -->
+		       <input type="radio" name="grade" value="고등학교">
+		       고등학교&nbsp;
+		       <input type="radio" name="grade" value="전문대학">
+		       전문대학&nbsp;
+		       <input type="radio" name="grade" value="4년대학">
+		       4년대학&nbsp;
+		       <input type="radio" name="grade" value="대학원">
+		       대학원&nbsp;
+		    </td>
+		  </tr>
+		  
+		  <!--checkbox -->
+		  <tr>
+		    <td>
+		      <b>가능한 프로그램 언어</b>&nbsp;&nbsp;
+		        <input type="checkbox" name="lang" value="c언어">
+		        c언어&nbsp;
+		        <input type="checkbox" name="lang" value="JAVA">
+		        JAVA&nbsp;
+		        <input type="checkbox" name="lang" value="JSP">
+		        JSP&nbsp;
+		        <input type="checkbox" name="lang" value="SPRING">
+		        SPRING&nbsp;
+		    </td>
+		  </tr>
+		  
+		  <!-- file,image -->
+		  <tr>
+		    <td>
+		      <b>이미지 or 파일선택</b>&nbsp;&nbsp;&nbsp;&nbsp;
+		      <input type="file" name="file">
+		    </td>
+		  </tr>
+		  
+		  <!--select  -->
+		  <tr>
+		    <td>
+		       <b>쎄미프로젝트를 가장 잘할것 같은 조는?</b>&nbsp;&nbsp;
+		         <select name="semi">
+		           <option value="1조" selected="selected">1조</option>
+		           <option value="2조">2조</option>
+		           <option value="3조">3조</option>
+		           <option value="4조">4조</option>
+		         </select>
+		    </td>
+		  </tr>
+		  
+		  <!-- number -->
+		  <tr>
+		    <td>
+		      <b>당신의 키는 몇cm 입니까?</b>&nbsp;&nbsp;
+		      <input type="number" name="height" min="150"
+		      max="210" value="150" step="2">cm
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <td>
+		      <b>당신의 몸무게는 몇kg 입니까?</b>&nbsp;&nbsp;
+		      <input type="number" name="weight" min="40"
+		      max="120" value="50" step="2">kg
+		    </td>
+		  </tr>
+		  
+		  <!-- color -->
+		  <tr>
+		    <td>
+		      <b>색상선택</b>&nbsp;&nbsp;
+		        <input type="color" name="col">
+		    </td>
+		  </tr>
+		  
+		  <!--date  -->
+		  <tr>
+		    <td>
+		      <b>날짜 선택</b>&nbsp;&nbsp;
+		        <input type="date" name="naljja">
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <td align="center">
+		      <input type="submit" value="전송">
+		      <input type="reset" value="초기화">
+		    </td>
+		  </tr>
+		  
+	</table>
+	
+	
+</form>
+</body>
+</html>

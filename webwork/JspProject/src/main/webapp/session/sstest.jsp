@@ -4,32 +4,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link
-      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Hi+Melody&family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-<% 
+<%
+//세션을 지정,저장하는 방법
 session.setAttribute("msg", "Happy day");
-
-session.setMaxInactiveInterval(60);
+//세션의 시간설정
+session.setMaxInactiveInterval(60);//60초 설정
 
 %>
 
-<h3>세션 값 얻기</h3>
-세션값: <%= session.getAttribute("msg") %><br>
-세션 유지 기간: <%= session.getMaxInactiveInterval() %>초<br>
-세션 생성 기간: <%= session.getCreationTime() %>초<br>
-세션 생성 기간: <%= new Date(session.getCreationTime()) %>초<br>
+<h3>세션값 얻기</h3>
+세션값:<%=session.getAttribute("msg") %><br>
+세션유지시간:<%=session.getMaxInactiveInterval() %>초<br>
+세션생성시간:<%=session.getCreationTime() %><br>
+세션생성시간:<%=new Date(session.getCreationTime()) %>
 </body>
 </html>

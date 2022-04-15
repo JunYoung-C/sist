@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h2>JQuery의 get()함수 이용해서 XML 데이타 읽기</h2>
+<button type="button" class="btn btn-info" id="btn1">xmldata1.xml</button>
+
+<h2>JQuery의 getJson()함수를 이용해서 json데이타 읽기</h2>
+ <button type="button" class="btn btn-danger" id="btn2">jsondata2.json</button>
+ 
+ <div id="show"></div>
+ 
+ <script type="text/javascript">
+ 
+ $("#btn1").click(function(){
+	 
+	 $.get("xmldata1.xml",function(data){
+		 
+		 var s="";
+		 $(data).find("person").each(function(i,ele){
+			 var n=$(ele);
+			 s+="<div class='alert alert-info' style='width:400px;'>";
+			 s+="No: "+n.attr("no")+",";
+			 s+="이름: "+n.find("name").text()+",";
+			 s+="주소: "+n.find("addr").text();
+			 s+="</div>";
+		 });
+		 
+		 $("#show").html(s);
+	 });
+ });
+ 
+ $("#btn2").click(function(){
+	 $.getJSON("jsondata2.json",function(data){
+		 
+		 var s="";
+		 //인자로 넘어는 data는 배열타입
+		 $.each(data,function(i,item){
+			 
+			 s+="<div class='alert alert-info' style='width:300px;'>";
+			 s+="index: "+i+"<br>";
+			 s+="num: "+item.num+"<br>";
+			 s+="sanpum: "+item.sangpum+"<br>";
+			 s+="<img src='"+item.photo+"' width='100'>";
+			 s+="</div><br>";
+		 });
+		 
+		 $("#show").html(s);
+	 });
+ });
+ 
+ </script>
+ 
+</body>
+</html>

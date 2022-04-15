@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+#show{
+	margin-top: 30px;
+	font-family:'Hi Melody';
+	font-size: 1.3em;
+}
+
+div.box{
+	width: 40px;
+	height: 40px;
+	border: 1px solid black;
+	border-radius: 100px;
+	box-shadow: 5px 5px 5px gray;
+}
+
+
+</style>
+
+</head>
+<body>
+<button type="button" class="btn btn-default" id="btn1">shop DB 데이타 읽어오기_json</button>
+<button type="button" class="btn btn-default" id="btn2">Friend DB 데이타 읽어오기_json</button>
+<div id="show"></div>
+
+<script type="text/javascript">
+
+//btn1_shotojson
+$("#btn1").click(function(){
+	
+	$.ajax({
+		
+		type:"get",
+		url:"shoptojson.jsp",
+		dataType:"json",
+		success:function(data){
+			
+			var s="<table class='table table-bordered' style='width: 700px;'>";
+			s+="<caption><h4>Json Shop읽기</h4></caption>";
+			s+="<tr bgcolor='pink'>";
+			s+="<th>번호</th><th>상품명</th><th>색상</th><th>가격</th><th>이미지</th>";
+			s+="</tr>";
+			$.each(data,function(i,elt){
+				
+				s+="<tr align='center'>";
+				s+="<td>"+elt.num+"</td>";
+				s+="<td>"+elt.sangpum+"</td>";
+				s+="<td>"+elt.color+"<br>"
+				     +"<div class='box' style='background-color:"
+				     +elt.color+";'></div></td>";
+				s+="<td>"+elt.price+"</td>";
+				s+="<td><img src='"+elt.imagename+"' width='60'></td>";
+				s+="</tr>";
+			});
+			
+			s+="</table>";
+			$("#show").html(s);
+		}
+	});
+	
+});
+
+
+//friendtojson읽어오기
+
+$("#btn2").click(function(){
+	
+	$.ajax({
+		
+		type:"get",
+		url:"friendtojson.jsp",
+		dataType:"json",
+		success:function(data){
+			
+			var s="<table class='table table-bordered' style='width: 700px;'>";
+			s+="<caption><h4>Json Friend읽기</h4></caption>";
+			s+="<tr bgcolor='cyan'>";
+			s+="<th>번호</th><th>친구명</th><th>핸드폰</th><th>주소</th><th>가입일</th>";
+			s+="</tr>";
+			$.each(data,function(i,elt){
+				
+				s+="<tr align='center'>";
+				s+="<td>"+elt.num+"</td>";
+				s+="<td>"+elt.name+"</td>";
+				s+="<td>"+elt.hp+"</td>";
+				s+="<td>"+elt.addr+"</td>";
+				s+="<td>"+elt.gaip+"</td>";
+				s+="</tr>";
+			});
+			
+			s+="</table>";
+			$("#show").html(s);
+		}
+	});
+	
+});
+
+
+</script>
+
+
+</body>
+</html>

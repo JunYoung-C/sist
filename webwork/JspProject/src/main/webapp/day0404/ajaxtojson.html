@@ -1,58 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      #show {
-        font-family: "Gamja Flower";
-        font-size: 1.3em;
-        margin-top: 30px;
-      }
-    </style>
-  </head>
-  <body>
-    <button type="button" class="btn btn-info" id="btn1">
-      XML 데이터를 ajax 함수를 통해 읽기
-    </button>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+#show{
+	font-family: 'Gamja Flower';
+	font-size: 1.3em;
+	margin-top: 30px;
+}
 
-    <div id="show"></div>
+div.box{
+  float: left;
+  margin-left: 20px;
+  border: 2px solid gray;
+  border-radius: 20px;
+}
+</style>
 
-    <script>
-      $("#btn1").click(function() {
-        $.ajax({
-          type: "get";
-          dataType: "json",
-          url: "../infotojson.jsp",
-          success: function(data) {
-            let s = "";
+</head>
+<body>
+<button type="button" class="btn btn-info" id="btn1">infotojson.jsp 읽기</button>
+<img alt="" src="../img/15.png" width="60">
+<div id="show"></div>
 
-            $.each(data, function(i, e) {
-              s += "<div class='alert alert-danger box' style='width: 300px;'>";
-              s += "index: " + i + "<br>";
-              s += "번호: " + e.num + "<br>";
-              s += "이름: " + e.name + "<br>";
+<script type="text/javascript">
+$("#btn1").click(function(){
+	
+	$.ajax({
+		
+		type:"get",
+		dataType:"json",
+		url:"../day0401/infotojson.jsp",
+		success:function(data){
+			var s="";
+			$.each(data,function(i,elt){
+				
+				s+="<div class='alert alert-danger box' style='width:300px;'>";
+				s+="index: "+i+"<br>";
+				s+="Num: "+elt.num+", 이름:"+elt.name+"<br>";
+				s+="핸드폰: "+elt.hp+"<br>";
+				s+="나이: "+elt.age+"세<br>";
+				s+="<img src='"+elt.photo+"' width='100'><br>";
+				s+="</div>";
+			});
+			
+			$("#show").html(s);
+		}
+	});
+});
 
-              s += "</div>";
-            });
-
-            $("#show").html(s);
-          }
-        })
-      })
-    </script>
-  </body>
+</script>
+</body>
 </html>

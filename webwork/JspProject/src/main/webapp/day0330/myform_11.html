@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script type="text/javascript">
+ function check(f){
+	 if(f.name.value.length==0){
+		 alert("이름을 입력하세요");
+		 f.name.focus();
+		 return false;
+	 }
+	 
+	 if(f.pass.value.length==0){
+		 alert("비밀번호를 입력하세요");
+		 f.pass.focus();
+		 return false;
+	 }
+ }
+ 
+ </script>
+
+</head>
+<body>
+<h2>여러 데이타 전달하기</h2>
+
+<form action="myAction_11.jsp" method="post" onsubmit="return check(this)">
+  <table class="table table-bordered" style="width: 300px;">
+    <tr>
+      <th>이름</th>
+        <td>
+          <input type="text" name="name" size="5" placeholder="이름입력">
+        </td>
+    </tr>
+    
+    <tr>
+      <th>비밀번호</th>
+        <td>
+          <input type="password" name="pass" size="5" placeholder="비밀번호">
+        </td>
+    </tr>
+    
+    <tr>
+      <th>운전면허</th>
+        <td>
+          <input type="checkbox" name="license" >운전면허
+        </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+    </tr>
+  </table>
+</form>
+</body>
+</html>

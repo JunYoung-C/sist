@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <board>
   <data id="angel" name="이수연">
-    <subject>안녕 즐거운 금요일입니다.</subject>
-    <photo>../image/04.png</photo>
+    <subject>안녕 즐거운 금요일입니다</subject>
+    <photo>../img/4.png</photo>
   </data>
   <data id="flower" name="정미라">
-    <subject>오늘 만나자.</subject>
-    <photo>../image/05.png</photo>
+    <subject>오늘 만나자</subject>
+     <photo>../img/5.png</photo>
   </data>
   <data id="kim" name="김정민">
     <subject>점심메뉴</subject>
-    <photo>../image/06.png</photo>
+     <photo>../img/6.png</photo>
   </data>
   <data id="lee" name="이윤지">
-    <subject>안녕 </subject>
-    <photo>../image/07.png</photo>
+    <subject>주말 모임</subject>
+     <photo>../img/7.png</photo>
   </data>
   <data id="soo" name="이수정">
-    <subject>즐거운 금요일입니다.</subject>
-    <photo>../image/08.png</photo>
+    <subject>쎄미 프로젝트</subject>
+     <photo>../img/8.png</photo>
   </data>
 </board>

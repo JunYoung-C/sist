@@ -1,23 +1,35 @@
+<%@page import="ajaxboard.AjaxBoardDao"%>
+<%@page import="ajaxboard.AjaxBoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link
-      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<%
+//post방식
+request.setCharacterEncoding("utf-8");
 
+String writer=request.getParameter("writer");
+String subject=request.getParameter("subject");
+String content=request.getParameter("content");
+String avata=request.getParameter("avata");
+
+//dto선언
+
+AjaxBoardDto dto=new AjaxBoardDto();
+dto.setWriter(writer);
+dto.setSubject(subject);
+dto.setContent(content);
+dto.setAvata(avata);
+
+//insert 메서드 호출
+AjaxBoardDao db=new AjaxBoardDao();
+db.insertBoard(dto);
+
+%>
 </body>
 </html>

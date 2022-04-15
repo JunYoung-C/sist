@@ -5,36 +5,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link
-      href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-<% 
+<%
+//한글엔코딩
 request.setCharacterEncoding("utf-8");
 
-String num = request.getParameter("unum");
-String writer = request.getParameter("uwriter");
-String content = request.getParameter("ucontent");
-String avatar = request.getParameter("uavatar");
+//num,writer,content,avatar
+String num=request.getParameter("unum");
+String writer=request.getParameter("uwriter");
+String content=request.getParameter("ucontent");
+String avatar=request.getParameter("uavatar");
 
-MemoDto dto = new MemoDto();
+//dto에 넣어주기
+MemoDto dto=new MemoDto();
 dto.setNum(num);
 dto.setWriter(writer);
 dto.setContent(content);
 dto.setAvatar(avatar);
 
-MemoDao dao = new MemoDao();
+//dao선언
+MemoDao dao=new MemoDao();
+//수정메서드 호출
 dao.updateMemo(dto);
 %>
 </body>

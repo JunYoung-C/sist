@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	
+	//json
+	$("#btn1").click(function(){
+		
+		$.getJSON("multijson.json",function(data){
+			
+			var s="<h3>Json 데이타 출력</h3>";
+			//배열 data
+			$.each(data,function(i,item){
+				
+				s+=(i+1)+"번째 데이터<br>";
+				s+="Name: "+item.name+"<br>";
+				s+="Hobby: ";
+				if(item.hobby==null){
+					s+="취미없음";
+				}else{
+					//취미는 배열형태이므로 역시 each로 반복해서 출력
+					$.each(item.hobby,function(i,h){
+						s+="["+h+"]&nbsp;";
+					});
+				}
+				
+				s+="<br>";
+				s+="Age: "+item.age+"<br>";
+				s+="Kor: "+(item.score.kor==null?"시험미응시":item.score.kor+"점")+"<br>";
+				s+="Eng: "+(item.score.eng==null?"미시험":item.score.eng+"점")+"<br>";
+				
+				s+="<hr>";
+			});
+			
+			$("#out").html(s);
+		}); 
+	});
+	
+	//xml
+	$("#btn2").click(function(){
+		$.get("multixml.xml",function(data){
+			
+			var s="<h3>XML데이타 출력</h3>";
+			$(data).find("data").each(function(i,ele){
+				var row=$(ele);
+				s+="아이디: "+row.attr("id")+"<br>";
+				s+="이름: "+row.attr("name")+"<br>";
+				s+="제목: "+row.find("subject").text()+"<br>";
+				var imgname=row.find("photo").text();
+				s+="이미지명: "+imgname+"<br>";
+				s+="<img src='"+imgname+"' style='max-width:150px;'>";
+				s+="<hr>";
+			});
+			
+			$("#out").html(s);
+		});
+	});
+	
+});
+</script>
+
+</head>
+<body>
+<button type="button" class="btn btn-success" id="btn1">multijson.json읽기</button>
+<button type="button" class="btn btn-danger" id="btn2">multixml.xml읽기</button>
+
+<hr>
+<div id="out" class="alert alert-info" style="width: 400px;">Hello</div>
+</body>
+</html>

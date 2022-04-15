@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+	div.list,div.detail,div.updateform{
+		position: absolute;
+		left: 100px;
+		top: 100px;
+	}
+	
+	div.writeform{
+		position: absolute;
+		left: 900px;
+		top: 100px;
+	}
+	
+	div.list *,div.writeform *,div.detail *,div.updateform *{
+		font-family: 'Hi Melody';
+		font-size: 13pt;
+	}
+	
+	span.detail{
+		cursor: pointer;
+	}
+
+	div.detail button{
+	width: 80px;
+	margin-right: 10px;
+	}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	
+	list();
+	
+	//입력폼 처음에 안보이게
+	$("div.writeform").hide();
+	
+	//수정폼도 처음에 안보이게
+	$("div.updateform").hide();
+	
+	
+	//글쓰기 버튼 누르면 입력폼 나오게하세요
+	$("#btnwrite").click(function(){
+		$("div.writeform").toggle();
+	});
+	
+	
+	//db추가버튼
+	$("#btnadd").click(function(){
+		
+		var writer=$("#writer").val();
+		var subject=$("#subject").val();
+		var content=$("#content").val();
+		var avata=$("#avata").val();
+		
+		
+		console.log(writer,subject,content,avata);
+		
+		$.ajax({
+			
+			type:"post",
+			dataType:"html",
+			url:"insertboard.jsp",
+			data:{"writer":writer,"subject":subject,"content":content,"avata":avata},
+			success:function(){
+				
+				
+				//insert성공시 처리
+				$("#writer").val("");
+				$("#subject").val("");
+				$("#content").val("");
+				
+				//다시 목록출력
+				list();
+				
+				//입력폼 사라지게
+				$("div.writeform").hide();
+			}
+		});
+		
+	});
+	
+	
+	//제목클릭시 내용보기 이벤트
+	$(document).on("click","span.detail",function(){
+		
+		//span태그에 넣어둔 num을 가져오기
+		var num=$(this).attr("num");
+		//alert(num);
+		
+		$.ajax({
+			type:"get",
+			dataType:"json",
+			data:{"num":num},
+			url:"detailboard.jsp",
+			success:function(data){
+				var s="<table class='table table-bordered' style='width:500px;'>";
+				s+="<caption><b>내용 확인</b></caption>";
+				s+="<tr bgcolor='orange'>";
+				s+="<td><b style='font-size:2em;'>"+data.subject+"</b>";
+				s+="<span style='float:right; color:gray;'>"+data.writeday+"</span></td></tr>";
+				s+="<tr><td>";
+				s+="<img src='"+data.avata+"' width='40' align='left'>";
+				s+="<br>"+data.writer+"</td></tr>";
+				s+="<tr height='150'><td><pre>"+data.content+"</pre></td></tr>";
+				//버튼들
+				s+="<tr><td align='right' num='"+data.num+"'>";
+				s+="<button type='button' class='btn btn-info btnlist'>목록</button>";
+				s+="<button type='button' class='btn btn-info btnupdate'>수정</button>";
+				s+="<button type='button' class='btn btn-info btndel'>삭제</button>";
+				s+="</td></tr>";
+				s+="</table>";
+				$("div.detail").html(s);
+				
+				//list숨기기
+				$("div.list").hide();
+				
+				//detail페이지 보이게
+				$("div.detail").show();
+				
+				
+			}
+		});
+	});
+	
+	//내용보기안의 목록버튼
+	$(document).on("click",".btnlist",function(){
+		
+		$("div.detail").hide();
+		$("div.list").show();
+	});
+	
+	
+	//삭제
+	$(document).on("click",".btndel",function(){
+		
+		//num값가져오기
+		var num=$(this).parent().attr("num"); //td에서 num 가져옴
+		//alert(num);
+		
+		$.ajax({
+			type:"get",
+			dataType:"html",
+			url:"deleteboard.jsp",
+			data:{"num":num},
+			success:function(){
+				
+				list();
+				
+				//내용보기 안보이게..목록보이게
+				$("div.detail").hide();
+				$("div.list").show();
+			}
+		});
+	});
+	
+	
+	//내용보기안의 수정버튼
+	$(document).on("click",".btnupdate",function(){
+		
+		//부모태그 td로 부터 num가져오기
+		var num=$(this).parent().attr("num");
+		$.ajax({
+			
+			type: "get",
+			dataType: "json",
+			url:"detailboard.jsp",
+			data: {"num":num},
+			success: function(data){
+				
+				//수정폼에 데이타 넣어주기
+				$("#unum").val(data.num);
+				$("#uwriter").val(data.writer);
+				$("#usubject").val(data.subject);
+				$("#ucontent").val(data.content);
+				$("#uavata").val(data.avata);
+				
+				//내용보기 안보이게
+				$("div.detail").hide();
+				//수정폼 보이게
+				$("div.updateform").show();
+			}
+			
+		});
+	});
+	
+	//실제수정..db 수정버튼
+	$("#btnupdate").click(function(){
+		
+		var data=$("#updatefrm").serialize();
+		//alert(data);
+		
+		$.ajax({
+			
+			type: "post",
+			dataType: "html",
+			url:"updateboard.jsp",
+			data: data,
+			success: function(){
+				
+				//수정했으니 목록다시가져오기
+				list();
+				
+				//현재수정폼 안보이게
+				$("div.updateform").hide();
+				
+				//목록보이게
+				$("div.list").show();
+			}
+			
+		});
+	});
+	
+});
+///////////////list
+function list(){
+	$.ajax({
+		
+		type:"get",
+		dataType:"json",
+		url:"listboard.jsp",
+		success:function(data){
+			//alert(data.length);
+			
+			//제목출력
+			var s="<table class='table table-bordered' style='width:700px;'>";
+			s+="<caption><b>Ajax게시판</b></caption>";
+			s+="<tr bgcolor='#ccf'>";
+			s+="<th width='50'>번호</th>";
+			s+="<th width='350'>제목</th>";
+			s+="<th width='70'>작성자</th>";
+			s+="<th width='120'>작성일</th>";
+			s+="</tr>";
+			
+			if(data.length==0){
+				s+="<tr>";
+				s+="<td colspan='4' align='center'>";
+				s+="<b>저장된 글이 없습니다</b>";
+				s+="</td></tr>";
+			}else{
+				//데이타가 1개 이상있는경우
+				$.each(data,function(i,item){
+					s+="<tr>";
+					s+="<td align='center'>"+(i+1)+"</td>";
+					s+="<td>";
+					s+="<span num='"+item.num+"' class='detail'>"+item.subject+"</span>";
+					s+="</td>";
+					s+="<td>"+item.writer+"</td>";
+					s+="<td>"+item.writeday+"</td>";
+					s+="</tr>";
+				});
+			}
+			
+			s+="</table>";
+			$("#board").html(s);
+		}
+	});
+	
+}
+
+</script>
+
+</head>
+<body>
+<div class="list">
+  <button type="button" class="btn btn-info" id="btnwrite">글쓰기</button>
+  <div id="board">list</div>
+</div>
+
+<!--입력폼  -->
+<div class="writeform">
+	<form action="#">
+	  <table class="table table-bordered" style="width: 300px;">
+	     <caption><b>게시글 추가</b></caption>
+	       <tr>
+	          <th bgcolor="#fcc">작성자</th>
+	            <td>
+	              <input type="text" id="writer" style="width: 120px;"
+	              class="form-control input-sm">
+	            </td>
+	       </tr>
+	       
+	       <tr>
+	          <th bgcolor="#fcc">제목</th>
+	            <td>
+	              <input type="text" id="subject" style="width: 200px;"
+	              class="form-control input-sm">
+	            </td>
+	       </tr>
+	       
+	       <tr>
+	          <th bgcolor="#fcc">아바타</th>
+	            <td>
+	              <select id="avata" class="form-control">
+	                <option value="../img/3.png">인사</option>
+	                <option value="../img/20.png">기쁨</option>
+	                <option value="../img/2.png">슬픔</option>
+	                <option value="../img/6.png">좌절</option>
+	                <option value="../img/8.png">최고</option>
+	              </select>
+	            </td>
+	       </tr>
+	       
+	       <tr>
+	          <td colspan="2">
+	            <textarea style="width: 300px; height: 100px;"
+	            id="content" class="form-control"></textarea>
+	          </td>
+	       </tr>
+	       
+	       <tr>
+	         <td colspan="2" align="center">
+	           <button type="button" class="btn btn-danger"
+	           id="btnadd">DB추가</button>
+	         </td>
+	       </tr>
+	  </table>
+	
+	
+	</form>
+
+</div>
+
+<!--detail  -->
+<div class="detail"></div>
+
+<!--수정  -->
+<div class="updateform">
+	<form action="#" id="updatefrm">
+	
+	<!--num 은 hidden으로 넘기기  -->
+	<input type="hidden" name="unum" id="unum">
+	  <table class="table table-bordered" style="width: 300px;">
+	     <caption><b>게시글 수정</b></caption>
+	       <tr>
+	          <th bgcolor="#fcc">작성자</th>
+	            <td>
+	              <input type="text" id="uwriter" name="uwriter"
+	              style="width: 120px;"
+	              class="form-control input-sm">
+	            </td>
+	       </tr>
+	       
+	       <tr>
+	          <th bgcolor="#fcc">제목</th>
+	            <td>
+	              <input type="text" id="usubject" name="usubject"
+	               style="width: 200px;"
+	              class="form-control input-sm">
+	            </td>
+	       </tr>
+	       
+	       <tr>
+	          <th bgcolor="#fcc">아바타</th>
+	            <td>
+	              <select id="uavata" name="uavata" class="form-control">
+	                <option value="../img/3.png">인사</option>
+	                <option value="../img/20.png">기쁨</option>
+	                <option value="../img/2.png">슬픔</option>
+	                <option value="../img/6.png">좌절</option>
+	                <option value="../img/8.png">최고</option>
+	              </select>
+	            </td>
+	       </tr>
+	       
+	       <tr>
+	          <td colspan="2">
+	            <textarea style="width: 300px; height: 100px;"
+	            id="ucontent" name="ucontent" class="form-control"></textarea>
+	          </td>
+	       </tr>
+	       
+	       <tr>
+	         <td colspan="2" align="center">
+	           <button type="button" class="btn btn-danger"
+	           id="btnupdate">DB수정</button>
+	         </td>
+	       </tr>
+	  </table>
+	
+	
+	</form>
+
+</div>
+
+
+</body>
+</html>
