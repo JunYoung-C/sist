@@ -18,6 +18,7 @@ div.title{
 	width: 100%;
 	height: 100px;
 	text-align: center;
+	vertical-align: bottom;
 }
 
 div.menu{
