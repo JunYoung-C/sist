@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+  <select id="ToTalCountOfReboard" resultType="int">
+    select count(*) from reboard
+  </select>
+  <!-- num의 max값,null 일경우 0 -->
+  <select id="MaxNumOfReboard" resultType="int">
+    select ifnull(max(num),0) from reboard
+  </select>
+  <!-- 같은 group중에서 step보다 큰데이터는 모두 +1 -->
+  <update id="UpdateStepOfReboard" parameterType="HashMap">
+    update reboard set restep=restep+1 where regroup=#{regroup} and restep>#{restep}
+  </update>
+  <!--insert:원글,새글 모두 해당  -->
+  <insert id="insertOfReboard" parameterType="bdto">
+   insert into reboard 
+   (writer,pass,subject,content,photo,regroup,restep,relevel,writeday) 
+   values (#{writer},#{pass},#{subject},#{content},#{photo},#{regroup},#{restep},#{relevel},now()) 
+   
+  </insert>
+  
+  <!-- 페이징처리 리스트  -->
+  <select id="SelectPagingOfReboard" parameterType="HashMap" resultType="bdto">
+  select * from reboard order by regroup desc,restep asc limit #{start},#{perpage}
+  </select>
+  <!-- readcount증가 -->
+  <update id="UpdateReadCountOfReboard" parameterType="int">
+  	update reboard set readcount=readcount+1 where num=#{num}
+  </update>
+  
+  <select id="GetDataOfReboard" parameterType="int" resultType="bdto">
+   select * from reboard where num=#{num}
+  </select>
+  <!-- 비밀번호 체크(num,pass) -->
+  <select id="CheckPassEqualOfReboard" parameterType="HashMap" resultType="int">
+    select count(*) from reboard where num=#{num} and pass=#{pass}
+  </select>
+  <!-- 업데이트 -->
+  <update id="UpdateOfReboard" parameterType="bdto">
+   update reboard set writer=#{writer},subject=#{subject},content=#{content}
+   <if test="photo!=null">
+    ,photo=#{photo}
+   </if>
+    where num=#{num}
+  </update>
+  <delete id="DeleteOfBoard" parameterType="int">
+   delete from reboard where num=#{num}
+  </delete>
+  
+</mapper>
